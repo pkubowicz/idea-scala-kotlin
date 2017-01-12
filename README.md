@@ -3,9 +3,11 @@ A comparison of Java interoperability in Scala and Kotlin just for educational p
 Some results
 ------------
 
+```
 Java 1.5s Kotlin 4s Scala 16s
-0.25 0.9 7.8
-0.1  7   13
+0.25 0.9  7.8
+0.2  1.5 14
+```
 
 More classes in Kotlin (it generate anonymous classes)
 
