@@ -1,0 +1,9 @@
+apply plugin: 'application'
+
+mainClassName = 'example.runner.Runner'
+applicationDefaultJvmArgs = ["-ea"]
+
+dependencies {
+    compile project(':kotlin-module')
+    compile project(':scala-module')
+}

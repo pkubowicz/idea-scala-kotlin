@@ -1,0 +1,6 @@
+include 'java-module'
+include 'java-runner'
+include 'kotlin-module'
+include 'scala-module'
+
+rootProject.name = 'idea-scala-kotlin'

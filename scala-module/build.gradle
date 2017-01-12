@@ -1,0 +1,7 @@
+apply plugin: 'scala'
+
+dependencies {
+    compile project(":java-module")
+    compile 'org.scala-lang:scala-library:2.12.1'
+}
+
