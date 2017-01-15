@@ -33,6 +33,8 @@ class NullsStatic {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.err.println("Scala: is admin admin? " + scalaTokenFactory.isAdmin(new CredentialsCase("admin", "example.com")));
+        System.err.println("Scala: is null admin? " + scalaTokenFactory.isAdmin(null));
 
         // Kotlin
         KotlinUser fakeKotlinUser = new FakeKotlinUser();
@@ -58,6 +60,9 @@ class NullsStatic {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        System.err.println("Kotlin: is admin admin? " + kotlinTokenFactory.isAdmin(new CredentialsData("admin", "admin")));
+        System.err.println("Kotlin: is null admin? " + kotlinTokenFactory.isAdmin(null));
     }
 
     private static class FakeKotlinUser implements KotlinUser {

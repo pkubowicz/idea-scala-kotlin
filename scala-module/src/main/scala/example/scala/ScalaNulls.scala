@@ -33,6 +33,8 @@ class ScalaTokenFactory {
     passwordEnv + "." + user.name()
   }
 
+  def isAdmin(credentials: CredentialsCase): Boolean = credentials == admin
+
   def unused2(): String = "unused2"
 }
 

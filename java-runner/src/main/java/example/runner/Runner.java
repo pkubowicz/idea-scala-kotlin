@@ -7,5 +7,7 @@ public class Runner {
         new Operators().run();
         new Lambdas().run();
         new DefaultParameters().run();
+        new Varargs().run();
+        new MoreNulls().run();
     }
 }

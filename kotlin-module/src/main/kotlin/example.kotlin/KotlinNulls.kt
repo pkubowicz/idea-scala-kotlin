@@ -43,6 +43,8 @@ class KotlinTokenFactory {
         return user.name() + "." + passwordEnv
     }
 
+    fun isAdmin(credentials: CredentialsData?) = credentials == ADMIN // no more Yoda statements!
+
     fun unused2() : String = "unused2"
 
 }
