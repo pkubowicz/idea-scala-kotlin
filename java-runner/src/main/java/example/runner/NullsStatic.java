@@ -29,7 +29,9 @@ class NullsStatic implements Runnable {
         }
         System.err.println("Token for case " + scalaTokenFactory.create(new CredentialsCase("foo", "bar")));
         try {
-            scalaTokenFactory.create(new CredentialsCase("admin", "example.com"));
+            CredentialsCase credentials = new CredentialsCase("admin", "example.com");
+            System.err.println("Checking for " + credentials.name());
+            scalaTokenFactory.create(credentials);
         } catch (Exception e) {
             e.printStackTrace();
         }
