@@ -9,4 +9,23 @@ subprojects {
     repositories {
         mavenCentral()
     }
+
+    if (it.name in ["java-guava", "kotlin-module", "scala-module"]) {
+        apply plugin: "application"
+
+        mainClassName = 'foo'
+
+        task dependenciesSize(dependsOn: distZip) {
+            doLast {
+                int sum = 0
+                def formatString = "%-30s %6.1f KB"
+                zipTree(distZip.archivePath).matching { include '*/lib/*' }.files.sort().each {
+                    sum += it.length()
+                    println String.format(formatString, it.name, it.length() / 1024)
+                }
+                println String.format(formatString, "ALL", sum / 1024)
+            }
+        }
+        tasks.remove(run)
+    }
 }

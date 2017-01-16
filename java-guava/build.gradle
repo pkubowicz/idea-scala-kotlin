@@ -1,0 +1,4 @@
+dependencies {
+    compile project(":java-module")
+    compile group: 'com.google.guava', name: 'guava', version: '20.0'
+}

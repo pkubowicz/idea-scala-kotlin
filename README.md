@@ -14,3 +14,4 @@ More classes in Kotlin (it generate anonymous classes)
 
     ls -1 {kotlin,scala}-module/build/classes/main/example/*
 
+Compare size with dependencies: `gradle dependenciesSize`
