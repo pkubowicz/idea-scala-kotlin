@@ -1,5 +1,7 @@
 package example.kotlin
 
+import example.java.MapCalculator
+
 object KotlinCollections {
     fun oneTwoThree(): Iterable<Int> {
         val result = listOf(1, 2, 3)
@@ -11,5 +13,13 @@ object KotlinCollections {
         val result = mutableListOf(1, 2, 3)
         result[1] = 100
         return result
+    }
+
+    fun analyseMap() {
+        for ((host, hostResults) in MapCalculator.calculate()) {
+            for ((process, result) in hostResults) {
+                System.err.println("Kotlin $host:$process is ${result.status} (checked in ${result.time}ms)")
+            }
+        }
     }
 }

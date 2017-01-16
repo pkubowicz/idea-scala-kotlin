@@ -10,6 +10,11 @@ import java.util.List;
 
 class Collections {
     void run() {
+        immutable();
+        maps();
+    }
+
+    private void immutable() {
         // http://stackoverflow.com/questions/17737631/convert-from-scala-collection-seqstring-to-java-util-liststring-in-java-code
         // OMG!!! no answer is correct
         Seq<Object> scalaSeq = ScalaCollections.oneTwoThree();
@@ -27,5 +32,10 @@ class Collections {
             e.printStackTrace();
         }
         System.err.println("Kotlin iterable " + kotlinIterable);
+    }
+
+    private void maps() {
+        ScalaCollections.analyseMap();
+        KotlinCollections.INSTANCE.analyseMap();
     }
 }
