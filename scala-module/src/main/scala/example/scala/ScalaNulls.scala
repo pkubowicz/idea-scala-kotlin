@@ -24,7 +24,8 @@ class ScalaTokenFactory {
     val passwordEnv = System.getenv("PASSWORD")
     if (passwordEnv == null) {
       println("Calling method without required argument...")
-      println(NullUtils.inspectNonnull()) // missing argument, only a warning in compiler, nothing in IDE!!!
+      println(NullUtils.inspectNonnull()) // missing argument, only a warning in compiler, nothing in IDE!!! () is null Unit
+//      isAdmin() // but I cannot do such things in Scala
       println("...called!")
       println(NullUtils.inspectNonnull(passwordEnv)) // NPE here
       println(passwordEnv.length) // no warning!!!

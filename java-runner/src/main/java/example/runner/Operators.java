@@ -19,7 +19,7 @@ class Operators implements Runnable {
         }
 
         ScalaOperators scalaOperators = new ScalaOperators(new OperatorProvider());
-        System.err.println(scalaOperators.secondDiagonalElement());
+        System.err.println("Scala sum diagonal " + scalaOperators.sumDiagonal());
         Duration tenMillisFromScala = scalaOperators.twoComputationsTime();
         if (!tenMillisFromScala.equals(Duration.of(10, ChronoUnit.MILLIS))) {
             throw new AssertionError("duration is " + tenMillisFromScala);
@@ -37,6 +37,6 @@ class Operators implements Runnable {
         if (!tenMillisFromKotlin.equals(Duration.of(10, ChronoUnit.MILLIS))) {
             throw new AssertionError("duration is " + tenMillisFromKotlin);
         }
-        System.err.println(kotlinOperators.sumDiagonal());
+        System.err.println("Kotlin sum diagonal " + kotlinOperators.sumDiagonal());
     }
 }

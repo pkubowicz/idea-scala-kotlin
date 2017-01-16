@@ -3,12 +3,20 @@ package example.scala
 import java.time.Duration
 
 import example.java.OperatorProvider
+import collection.JavaConverters._
 
 class ScalaOperators(operatorProvider: OperatorProvider) {
-  def secondDiagonalElement(): Int = {
-    val sum = 0
-    val array = operatorProvider.compute()
-    array.get(1).get(1) // TODO better
+  def sumDiagonal(): Int = {
+    var sum = 0
+    val list = operatorProvider.compute()
+    for {
+      i <- 0 until list.size()
+      j <- 0 until list.get(i).size()
+      if i == j
+    } sum += list.get(i).get(j)
+    sum
+//    val list = operatorProvider.compute().asScala.map(_.asScala)
+//    list.zipWithIndex.collect { case (l, i) if l.size > i => l(i) }.map(Integer2int).sum
   }
 
   def twoComputationsTime(): Duration = {

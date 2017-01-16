@@ -5,7 +5,8 @@ class ScalaVarargs {
     System.err.println(java.lang.String.format("in Scala: %s-%s", "foo", null))
 //    System.err.println(java.lang.String.format("in Scala: string %s long %d", "foo", System.currentTimeMillis())) // does not compile, works in Kotlin TODO why?
     val time = Array(12, 51, 46)
-//    System.err.println(java.lang.String.format("in Scala: %d:%d:%d", time:_*)) // does not compile, works in Kotlin TODO does not compile
+//    System.err.println(java.lang.String.format("in Scala: %d:%d:%d", time:_*)) // does not compile, works in Kotlin
+//    System.err.println(java.lang.String.format("in Scala: %d:%d:%d", time)) // compiles, fails in runtime
 
     // _* in Scala
     format(time:_*)

@@ -12,7 +12,7 @@ class ScalaLambdas(provider: LambdaProvider) {
     list.foreach((i) => provider.getPrinter.accept(i))
 //    list.foreach(provider.getPrinter) // won't compile
 
-    provider.consumeInts((i) => println(s"Scala prints ${i}")) // false suggestion from Idea: braces cannot be removed
+    provider.consumeInts((i) => println(s"Scala prints $i"))
     val consumer: Int => Unit = (i) => println("Scala prints $i")
 //    provider.consumeInts(consumer) // won't compile
     val consumer2: Consumer[Int] = (i) => println("Scala prints $i")
