@@ -5,8 +5,9 @@ import java.util.Arrays;
 public class Runner {
     public static void main(String[] args) {
         Arrays.asList(new Runnable[]{
-                new NullsStatic(),
+                new Static(),
                 new CaseDataDefaultParameters(),
+                new Nulls(),
                 new ClassesInterfaces(),
                 new Operators(),
                 new Lambdas(),
