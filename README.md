@@ -35,6 +35,7 @@ A comparison of Java interoperability in Scala and Kotlin just for educational p
 
 - default methods in Kotlin interfaces need to be implemented in Java
 - immutable Kotlin collections seen as native Java collections in Java, compiler won't warn when you try to modify them (as in pure Java)
+- wrong name of getter for boolean fields (does not conform to JavaBean spec)
 
 # Compilation time and result size
 

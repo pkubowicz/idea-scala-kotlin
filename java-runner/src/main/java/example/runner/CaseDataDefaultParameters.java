@@ -23,6 +23,8 @@ class CaseDataDefaultParameters implements Runnable {
         KotlinFile kotlinFile2 = new KotlinFile("n1", "e1", "l1", true);
         System.err.println("Kotlin are equal " + kotlinFile1.equals(kotlinFile2));
         System.err.println("Kotlin hash codes " + (kotlinFile1.hashCode() == kotlinFile2.hashCode()));
+//        kotlinFile1.isExecutable(); // the only problem
+        kotlinFile1.getExecutable();
 //        kotlinFile1.setName("foo"); // no setters
         new KotlinOpenFile("n2", "e2", "l2", false).setName("foo");
     }
