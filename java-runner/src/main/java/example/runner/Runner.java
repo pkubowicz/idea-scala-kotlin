@@ -8,6 +8,7 @@ public class Runner {
         new Lambdas().run();
         new DefaultParameters().run();
         new Varargs().run();
+        new Collections().run();
         new MoreNulls().run();
     }
 }
