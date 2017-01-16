@@ -6,10 +6,10 @@ public class Runner {
     public static void main(String[] args) {
         Arrays.asList(new Runnable[]{
                 new NullsStatic(),
+                new CaseDataDefaultParameters(),
                 new ClassesInterfaces(),
                 new Operators(),
                 new Lambdas(),
-                new DefaultParameters(),
                 new Varargs(),
                 new Collections(),
                 new MoreNulls(),

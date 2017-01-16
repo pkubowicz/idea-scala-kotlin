@@ -13,6 +13,6 @@ object ScalaDefaults {
 //    example.java.JavaManyParameters.createFile(location = "/var/tmp") // wont' compile (yet)
   }
 
-  case class ScalaFile(name: String, extension: String, location: String, executable: Boolean)
-
 }
+
+case class ScalaFile(name: String, extension: String, location: String, executable: Boolean)
