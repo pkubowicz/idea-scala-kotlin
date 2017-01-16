@@ -29,5 +29,6 @@ subprojects {
             }
         }
         tasks.remove(run)
+        tasks.remove(distTar)
     }
 }

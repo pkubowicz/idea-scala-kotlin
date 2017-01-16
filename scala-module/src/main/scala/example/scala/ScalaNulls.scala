@@ -2,16 +2,8 @@ package example.scala
 
 import example.java.NullUtils
 
-trait ScalaUser {
-  def name(): String
-}
-
 class ScalaTokenFactory {
   import ScalaTokenFactory._ // not needed in Kotlin
-
-  def create(user: ScalaUser): String = {
-    user.name() + ".password"
-  }
 
   def create(credentials: CredentialsCase): String = {
     if (credentials == admin) {
@@ -20,18 +12,18 @@ class ScalaTokenFactory {
     credentials.name + "." + credentials.password
   }
 
-  def createFromEnv(user: ScalaUser): String = {
+  def createFromEnv(): String = {
     val passwordEnv = System.getenv("PASSWORD")
     if (passwordEnv == null) {
       println("Calling method without required argument...")
       println(NullUtils.inspectNonnull()) // missing argument, only a warning in compiler, nothing in IDE!!! () is null Unit
 //      isAdmin() // but I cannot do such things in Scala
       println("...called!")
-      println(NullUtils.inspectNonnull(passwordEnv)) // NPE here
-      println(passwordEnv.length) // no warning!!!
+      println(NullUtils.inspectNonnull(passwordEnv)) // NPE from called Java here
+      println(passwordEnv.length) // no warning although compiler can detect an NPE is guaranteed here!!!
       return null
     }
-    passwordEnv + "." + user.name()
+    passwordEnv
   }
 
   def isAdmin(credentials: CredentialsCase): Boolean = credentials == admin

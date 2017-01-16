@@ -2,10 +2,6 @@ package example.kotlin
 
 import example.java.NullUtils
 
-interface KotlinUser {
-    fun name(): String
-}
-
 class KotlinTokenFactory {
     companion object {
         private val ADMIN = CredentialsData("admin", "admin")
@@ -21,8 +17,6 @@ class KotlinTokenFactory {
         fun unused() : String = "unused"
     }
 
-    fun passwordFor(user: KotlinUser): String = user.name() + ".password"
-
     fun passwordFor(credentials: CredentialsData): String {
         if (credentials == ADMIN) {
             throw IllegalArgumentException("admin not allowed")
@@ -30,7 +24,7 @@ class KotlinTokenFactory {
         return credentials.name + "." + credentials.password
     }
 
-    fun envPasswordFor(user: KotlinUser): String? {
+    fun envPasswordFor(): String? {
         val passwordEnv : String? = System.getenv("PASSWORD")
 //        println(passwordEnv.length)
         if (passwordEnv == null) {
@@ -40,7 +34,7 @@ class KotlinTokenFactory {
             println("Inspected " + unknownInspect + safeInspect)
             return null
         }
-        return user.name() + "." + passwordEnv
+        return passwordEnv
     }
 
     fun isAdmin(credentials: CredentialsData?) = credentials == ADMIN // no more Yoda statements!

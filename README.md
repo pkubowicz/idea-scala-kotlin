@@ -28,10 +28,12 @@ A comparison of Java interoperability in Scala and Kotlin just for educational p
 - null safety when using properly annotated Java classes
 - null warnings in Java when calling nullable Kotlin code
 - default method parameters used in Java: work great if you use a proper annotation, if you don't work as in Scala
+- POJO-compatible data classes
 - smart casts
 
 ## Bad in Kotlin
 
+- default methods in Kotlin interfaces need to be implemented in Java
 - immutable Kotlin collections seen as native Java collections in Java, compiler won't warn when you try to modify them (as in pure Java)
 
 # Compilation time and result size

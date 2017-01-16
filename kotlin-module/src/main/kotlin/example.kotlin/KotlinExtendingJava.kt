@@ -1,6 +1,7 @@
 package example.kotlin
 
 import example.java.ChainElement
+import example.java.Named
 
 abstract class BaseStringChainElement<T> : ChainElement<T> {
     override fun handles(o: Any): Boolean {
@@ -18,8 +19,14 @@ class KotlinChainElement : BaseStringChainElement<Int>() {
         assert(o[o.length - 1] == o.last())
         return o.last().toInt()
     }
+
+    override fun describe() = "I don't need to override this but I will"
 }
 
 class KotlinShorterChainElement : BaseStringChainElement<Int>() {
     override fun handle(o: Any) = (o as String).last().toInt()
+}
+
+data class KotlinDataWithInterface(private val name: String, val address: String, val size: Int) : Named {
+    override fun getName() = name
 }

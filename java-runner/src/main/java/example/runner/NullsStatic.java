@@ -2,11 +2,8 @@ package example.runner;
 
 import example.kotlin.CredentialsData;
 import example.kotlin.KotlinTokenFactory;
-import example.kotlin.KotlinUser;
 import example.scala.CredentialsCase;
-import example.scala.ScalaUser;
 import example.scala.ScalaTokenFactory;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * handling nulls, static methods/objects/singletons, case classes, how stack traces look
@@ -14,16 +11,11 @@ import org.jetbrains.annotations.NotNull;
 class NullsStatic implements Runnable {
     public void run() {
         // Scala
-        ScalaUser fakeScalaUser = new FakeScalaUser();
-        if (fakeScalaUser.name() == null) {
-            return;
-        }
         System.err.println("Running Scala factory " + ScalaTokenFactory.describe());
         System.err.println("Running Scala factory v" + ScalaTokenFactory.VERSION()); // field in Kotlin
         ScalaTokenFactory scalaTokenFactory = new ScalaTokenFactory();
-        System.err.println("Token for fake " + scalaTokenFactory.create(fakeScalaUser));
         try {
-            System.err.println("Token from env " + scalaTokenFactory.createFromEnv(fakeScalaUser));
+            System.err.println("Token from env " + scalaTokenFactory.createFromEnv());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -38,11 +30,6 @@ class NullsStatic implements Runnable {
         System.err.println("Scala: is admin admin? " + scalaTokenFactory.isAdmin(new CredentialsCase("admin", "example.com")));
         System.err.println("Scala: is null admin? " + scalaTokenFactory.isAdmin(null));
 
-        // Kotlin
-        KotlinUser fakeKotlinUser = new FakeKotlinUser();
-        if (fakeKotlinUser.name() == null) {
-            return;
-        }
 //        System.err.println("Running Kotlin factory " + KotlinTokenFactory.describeKotlin()); // needs .Companion.
         System.err.println("Running Kotlin factory " + KotlinTokenFactory.describe());
         System.err.println("Running Kotlin factory v" + KotlinTokenFactory.VERSION);
@@ -56,29 +43,13 @@ class NullsStatic implements Runnable {
             e.printStackTrace();
         }
 
-        System.err.println("Password length for fake " + kotlinTokenFactory.passwordFor(fakeKotlinUser).length());
         try {
-            System.err.println("Password length for fake " + kotlinTokenFactory.envPasswordFor(fakeKotlinUser).length()); // NPE
+            System.err.println("Password length for fake " + kotlinTokenFactory.envPasswordFor().length()); // IDE warns of NPE
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         System.err.println("Kotlin: is admin admin? " + kotlinTokenFactory.isAdmin(new CredentialsData("admin", "admin")));
         System.err.println("Kotlin: is null admin? " + kotlinTokenFactory.isAdmin(null));
-    }
-
-    private static class FakeKotlinUser implements KotlinUser {
-        @NotNull
-        @Override
-        public String name() {
-            return "fake";
-        }
-    }
-
-    private static class FakeScalaUser implements ScalaUser {
-        @Override
-        public String name() {
-            return "fake";
-        }
     }
 }

@@ -7,4 +7,9 @@ public interface ChainElement<T> {
 
     @Nonnull
     T handle(@Nonnull Object o);
+
+    @Nonnull
+    default String describe() {
+        return "";
+    }
 }
