@@ -9,8 +9,8 @@ import example.scala.ScalaTimeout;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
-class Operators {
-    void run() {
+class Operators implements Runnable {
+    public void run() {
         // Scala
         ScalaTimeout.run();
         ScalaTimeout scalaTimeout50 = new ScalaTimeout(10).$times(3).$plus(new ScalaTimeout(20));
@@ -19,7 +19,7 @@ class Operators {
         }
 
         ScalaOperators scalaOperators = new ScalaOperators(new OperatorProvider());
-        System.out.println(scalaOperators.secondDiagonalElement());
+        System.err.println(scalaOperators.secondDiagonalElement());
         Duration tenMillisFromScala = scalaOperators.twoComputationsTime();
         if (!tenMillisFromScala.equals(Duration.of(10, ChronoUnit.MILLIS))) {
             throw new AssertionError("duration is " + tenMillisFromScala);
@@ -37,6 +37,6 @@ class Operators {
         if (!tenMillisFromKotlin.equals(Duration.of(10, ChronoUnit.MILLIS))) {
             throw new AssertionError("duration is " + tenMillisFromKotlin);
         }
-        System.out.println(kotlinOperators.sumDiagonal());
+        System.err.println(kotlinOperators.sumDiagonal());
     }
 }

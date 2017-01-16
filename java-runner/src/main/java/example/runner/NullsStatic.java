@@ -11,8 +11,8 @@ import org.jetbrains.annotations.NotNull;
 /**
  * handling nulls, static methods/objects/singletons, case classes, how stack traces look
  */
-class NullsStatic {
-    void run() {
+class NullsStatic implements Runnable {
+    public void run() {
         // Scala
         ScalaUser fakeScalaUser = new FakeScalaUser();
         if (fakeScalaUser.name() == null) {

@@ -8,8 +8,8 @@ import scala.collection.immutable.Seq;
 import java.util.Iterator;
 import java.util.List;
 
-class Collections {
-    void run() {
+class Collections implements Runnable {
+    public void run() {
         immutable();
         maps();
     }

@@ -3,8 +3,8 @@ package example.runner;
 import example.kotlin.KotlinDefaults;
 import example.scala.ScalaDefaults;
 
-class DefaultParameters {
-    void run() {
+class DefaultParameters implements Runnable {
+    public void run() {
         System.err.println("Scala");
         System.err.println(ScalaDefaults.createFile("other-name", "", "/tmp", false));
         System.err.println(ScalaDefaults.createFile$default$2()); // WTF? Does not return anything!

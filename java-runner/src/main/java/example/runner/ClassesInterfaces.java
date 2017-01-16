@@ -9,8 +9,8 @@ import example.scala.ScalaChainElement;
 import java.util.Arrays;
 import java.util.List;
 
-class ClassesInterfaces {
-    void run() {
+class ClassesInterfaces implements Runnable {
+    public void run() {
         // does not compile
 //        ChainElement<Integer> plainScalaChainElement = new example.scala.PlainScalaChainElement();
 
