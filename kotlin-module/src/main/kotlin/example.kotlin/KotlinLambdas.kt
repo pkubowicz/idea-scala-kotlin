@@ -1,27 +1,42 @@
 package example.kotlin
 
-import example.java.LambdaProvider
+import example.java.LambdaConsumer
 import java.util.function.Consumer
 
-class KotlinLambdas(private val provider: LambdaProvider) {
-    fun run() {
-        println("Kotlin iterates using Java")
-        val foo : List<Int> = listOf(100, 200, 300)
-        var action: (Int) -> Unit = { provider.printer.accept(it) }
-//        action = provider.printer // won't compile
-        foo.forEach(action)
-
-        provider.consumeInts { println("Kotlin prints $it") }
-        val consumer: (Int) -> Unit = { println("Kotlin2 prints $it") }
-        provider.consumeInts(consumer)
+class KotlinLambdas(private val consumer: LambdaConsumer) {
+    fun passLambdasToJava() {
+        consumer.consumeInts { println("Kotlin prints $it") }
+        val consumer1: (Int) -> Unit = { println("Kotlin2 prints $it") }
+        this.consumer.consumeInts(consumer1)
         val consumer2: Consumer<Int> = Consumer { println("Kotlin3 prints $it") }
 
-        var instance: LambdaProvider.AbstractClass = object : LambdaProvider.AbstractClass() {
+        val stringifier : (Int) -> String = { i -> "[$i]" }
+        consumer.printInts(stringifier)
+        consumer.printInts { i -> "[$i]" }
+
+        var instance: LambdaConsumer.AbstractClass = object : LambdaConsumer.AbstractClass() {
             override fun abstractMethod() {
                 utilityMethod()
                 println("foo")
             }
         }
-//        instance = LambdaProvider.AbstractClass { println("foo") } // wont' compile - possible in Scala
+//        instance = LambdaConsumer.AbstractClass { println("foo") } // wont' compile - possible in Scala
+    }
+
+    fun useConsumer(consumer: (Int) -> Unit) {
+        listOf(100, 200, 300).forEach(consumer)
+    }
+
+    fun usePredicate(predicate: (Int) -> Boolean) {
+        predicate(50)
+    }
+
+    fun useFunction2(fun2: (Int, String) -> String) {
+        fun2(10, "foo")
+    }
+
+    private fun testLambdas() {
+        usePredicate { i -> i > 0 }
+        useFunction2 { i, s -> "$i $s" }
     }
 }

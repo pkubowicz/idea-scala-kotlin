@@ -37,6 +37,10 @@ A comparison of Java interoperability in Scala and Kotlin just for educational p
 - immutable Kotlin collections seen as native Java collections in Java, compiler won't warn when you try to modify them (as in pure Java)
 - wrong name of getter for boolean fields (does not conform to JavaBean spec)
 
+## Bad in both
+
+- when implementing lambdas returning Unit ('void') in Java you need to return null
+
 # Compilation time and result size
 
 ```
