@@ -17,8 +17,8 @@ A comparison of Java interoperability in Scala and Kotlin just for educational p
 - calling Java varargs from Scala is sometimes impossible
 - calling Scala varargs from Java is very inconvenient if Scala API does not use a special annotation
 - using collections from the other language: need to Google for complicated conversions in both directions
-- some very confusing syntactic magic: `foo()` can be understood as `foo(null)`
 - when overriding methods, Scala `Int` is not Java `Integer`
+- some very confusing syntactic magic: `foo()` can be understood as `foo(null)`
 
 ## Good in Kotlin
 

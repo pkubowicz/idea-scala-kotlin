@@ -34,7 +34,15 @@ class ScalaLambdas(consumer: LambdaConsumer) {
     predicate(50)
   }
 
+  def usePredicateJavaVersion(predicate: Integer => Boolean): Unit = {
+    predicate(50)
+  }
+
   def useFunction2(fun2: (Int, String) => String) {
+    fun2(10, "foo")
+  }
+
+  def useFunction2JavaVersion(fun2: (Integer, String) => String) {
     fun2(10, "foo")
   }
 

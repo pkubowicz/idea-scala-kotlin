@@ -28,10 +28,13 @@ class Lambdas implements Runnable {
 //        scalaLambdas.useConsumer(System.err::println); // won't compile
         scalaLambdas.useConsumer(i -> { System.err.println(i); return null; });
 
-//        scalaLambdas.usePredicate(greaterThanZero); // won't compile - functions are incompatible with Java
-//        scalaLambdas.usePredicate(i -> i > 0);
-//        scalaLambdas.useFunction2(format); // won't compile - functions are incompatible with Java
-//        scalaLambdas.useFunction2((i, s) -> Integer.toString(i) + s);
+//        scalaLambdas.usePredicate(i -> i > 0); // won't compile - Int is not Integer
+        scalaLambdas.usePredicateJavaVersion(i -> i > 0);
+//        scalaLambdas.usePredicateJavaVersion(greaterThanZero); // won't compile - functions are incompatible with Java
+
+//        scalaLambdas.useFunction2((i, s) -> Integer.toString(i) + s); // won't compile - Int is not Integer
+        scalaLambdas.useFunction2JavaVersion((i, s) -> Integer.toString(i) + s);
+//        scalaLambdas.useFunction2JavaVersion(format); // won't compile - functions are incompatible with Java
 
         System.err.println("Kotlin iterates over Java");
 //        kotlinLambdas.useConsumer(printer); // won't compile
@@ -40,6 +43,7 @@ class Lambdas implements Runnable {
 
 //        kotlinLambdas.usePredicate(greaterThanZero); // won't compile - functions are incompatible with Java
         kotlinLambdas.usePredicate(i -> i > 0);
+
 //        kotlinLambdas.useFunction2(format); // won't compile - functions are incompatible with Java
         kotlinLambdas.useFunction2((i, s) -> Integer.toString(i) + s);
     }
