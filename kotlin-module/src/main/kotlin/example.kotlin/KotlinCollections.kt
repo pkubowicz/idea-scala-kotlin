@@ -1,6 +1,7 @@
 package example.kotlin
 
 import example.java.MapCalculator
+import java.util.*
 
 object KotlinCollections {
     fun oneTwoThree(): Iterable<Int> {
@@ -21,5 +22,10 @@ object KotlinCollections {
                 System.err.println("Kotlin $host:$process is ${result.status} (checked in ${result.time}ms)")
             }
         }
+    }
+
+    fun jdk8Methods() {
+        // requires Kotlin 1.1 to compile
+//        MapCalculator.calculate().computeIfAbsent("localhost", { host -> Collections.emptyMap() })
     }
 }

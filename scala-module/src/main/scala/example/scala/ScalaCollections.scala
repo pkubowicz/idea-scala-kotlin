@@ -1,5 +1,7 @@
 package example.scala
 
+import java.util.Collections
+
 import example.java.MapCalculator
 
 object ScalaCollections {
@@ -22,5 +24,9 @@ object ScalaCollections {
         System.err.println(s"Scala $host:$process is ${result.getStatus} (checked in ${result.getTime}ms)")
       })
     })
+  }
+
+  def jdk8Methods(): Unit = {
+    MapCalculator.calculate().computeIfAbsent("localhost", (host) => Collections.emptyMap())
   }
 }

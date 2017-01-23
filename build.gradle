@@ -9,6 +9,7 @@ subprojects {
     sourceCompatibility = 1.8
 
     repositories {
+        maven { url "http://dl.bintray.com/kotlin/kotlin-eap-1.1" }
         mavenCentral()
     }
 
