@@ -1,7 +1,9 @@
 apply plugin: "scala"
+apply plugin: "jacoco"
 
 dependencies {
     compile project(":java-module")
     compile 'org.scala-lang:scala-library:2.12.1'
 }
 
+test.finalizedBy jacocoTestReport

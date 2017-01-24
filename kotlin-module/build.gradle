@@ -12,8 +12,12 @@ buildscript {
 }
 
 apply plugin: "kotlin"
+apply plugin: "jacoco"
+
 dependencies {
     compile project(":java-module")
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 //    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
 }
+
+test.finalizedBy jacocoTestReport

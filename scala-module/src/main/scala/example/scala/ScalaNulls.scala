@@ -3,7 +3,7 @@ package example.scala
 import example.java.NullUtils
 
 class ScalaNulls {
-  def createFromEnv(): String = {
+  def passwordFromEnv(): String = {
     val passwordEnv = System.getenv("PASSWORD")
     if (passwordEnv == null) {
       println("Calling method without required argument...")

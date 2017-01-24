@@ -3,7 +3,7 @@ package example.kotlin
 import example.java.NullUtils
 
 class KotlinNulls {
-    fun envPasswordFor(): String? {
+    fun passwordFromEnv(): String? {
         val passwordEnv : String? = System.getenv("PASSWORD")
 //        println(passwordEnv.length)
         if (passwordEnv == null) {
