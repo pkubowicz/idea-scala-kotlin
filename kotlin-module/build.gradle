@@ -20,4 +20,8 @@ dependencies {
 //    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
 }
 
+jacoco {
+    toolVersion = "0.7.8"
+}
+
 test.finalizedBy jacocoTestReport
