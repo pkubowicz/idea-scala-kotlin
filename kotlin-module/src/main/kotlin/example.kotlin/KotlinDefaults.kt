@@ -3,7 +3,7 @@ package example.kotlin
 object KotlinDefaults {
     @JvmStatic
     @JvmOverloads
-    fun createFile(name: String = "removeme", extension: String = "", location: String = "/tmp", executable : Boolean = false): Any {
+    fun createFile(name: String = "removeme", extension: String = "", location: String = "/tmp", executable : Boolean = false): KotlinFile {
         return KotlinFile(name, extension, location, executable)
     }
 

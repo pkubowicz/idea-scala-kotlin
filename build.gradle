@@ -23,6 +23,8 @@ subprojects {
         mainClassName = 'foo'
 
         task dependenciesSize(dependsOn: distZip) {
+            description = 'Counts size of JAR created from each module'
+            group = 'Help'
             doLast {
                 int sum = 0
                 def formatString = "%-36s %6.1f KB"

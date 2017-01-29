@@ -31,13 +31,13 @@ class CaseDataDefaultParameters implements Runnable {
 
     private void defaultParameters() { // also demonstrates toString()
         System.err.println("Scala");
-        System.err.println(ScalaDefaults.createFile("other-name", "", "/tmp", false));
+        System.err.println(ScalaDefaults.createFile("other-name", "other-ext", "/tmp", true));
         System.err.println(ScalaDefaults.createFile$default$2()); // WTF? Does not return anything!
 
         System.err.println("Kotlin");
-        System.err.println(KotlinDefaults.createFile());
-        System.err.println(KotlinDefaults.createFile("other-name"));
+        System.err.println(KotlinDefaults.createFile("other-name", "other-ext", "/tmp", true));
         System.err.println(KotlinDefaults.createFile("other-name", "other-ext"));
-        System.err.println(KotlinDefaults.createFile("other-name", "other-ext", "/var/tmp"));
+        System.err.println(KotlinDefaults.createFile("other-name"));
+        System.err.println(KotlinDefaults.createFile());
     }
 }

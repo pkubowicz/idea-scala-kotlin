@@ -16,3 +16,4 @@ object ScalaDefaults {
 }
 
 case class ScalaFile(name: String, extension: String, location: String, executable: Boolean)
+case class ScalaCaseClassCannotBeOpen(name: String, extension: String, location: String, executable: Boolean)

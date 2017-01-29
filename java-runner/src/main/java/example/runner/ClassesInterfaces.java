@@ -35,13 +35,6 @@ class ClassesInterfaces implements Runnable {
         handle(responsibilityChain, "Kotlin:B");
         handle(responsibilityChain, "Scala:C");
 
-        try {
-            new KotlinShorterChainElement().handle(100L);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.err.println("ScalaPlainChainElement: " + new ScalaPlainChainElement().handle("foo"));
-
         Named[] named = new Named[]{new KotlinDataWithInterface("name", "addr", 2),
 //                new example.scala.ScalaCaseWithInterface("name", "addr", 3)
         };
@@ -71,6 +64,20 @@ class ClassesInterfaces implements Runnable {
         kotlinMenu.test();
     }
 
+    private static class FakeScalaButton implements ScalaButton {
+        @Override
+        public boolean toggle() {
+            return false;
+        }
+
+        @Override
+        public String caption() {
+            return "dummy caption";
+        }
+
+//        @Override public void reset() { System.err.println("I can but I won't override this"); }
+    }
+
     private static class FakeKotlinButton implements KotlinButton {
         @Override
         public boolean toggle() {
@@ -90,29 +97,6 @@ class ClassesInterfaces implements Runnable {
         }
     }
 
-    private static class FakeKotlinMenu extends KotlinMenu {
-        @Override
-        public void test() {
-            getButtons().forEach(KotlinButton::reset);
-        }
-
-//        @Override public void addButton(KotlinButton button) {} // won't compile - is final
-    }
-
-    private static class FakeScalaButton implements ScalaButton {
-        @Override
-        public boolean toggle() {
-            return false;
-        }
-
-        @Override
-        public String caption() {
-            return "dummy caption";
-        }
-
-//        @Override public void reset() { System.err.println("I can but I won't override this"); }
-    }
-
     private static class FakeScalaMenu extends ScalaMenu {
         @Override
         public void test() {
@@ -120,5 +104,14 @@ class ClassesInterfaces implements Runnable {
         }
 
         //        @Override public void addButton(ScalaButton button) {} // won't compile - is final
+    }
+
+    private static class FakeKotlinMenu extends KotlinMenu {
+        @Override
+        public void test() {
+            getButtons().forEach(KotlinButton::reset);
+        }
+
+//        @Override public void addButton(KotlinButton button) {} // won't compile - is final
     }
 }
