@@ -25,7 +25,7 @@ subprojects {
         task dependenciesSize(dependsOn: distZip) {
             doLast {
                 int sum = 0
-                def formatString = "%-30s %6.1f KB"
+                def formatString = "%-36s %6.1f KB"
                 zipTree(distZip.archivePath).matching { include '*/lib/*' }.files.sort().each {
                     sum += it.length()
                     println String.format(formatString, it.name, it.length() / 1024)
