@@ -1,7 +1,6 @@
 package example.kotlin
 
 import example.java.OperatorProvider
-import java.time.Duration
 
 class KotlinOperators(private val operatorProvider: OperatorProvider) {
     fun sumDiagonal(): Int {
@@ -17,7 +16,7 @@ class KotlinOperators(private val operatorProvider: OperatorProvider) {
         return sum
     }
 
-    fun twoComputationsTime(): Duration {
+    fun twoComputationsTime(): java.time.Duration {
         return operatorProvider.lastComputationTime() + operatorProvider.lastComputationTime()
     }
 }

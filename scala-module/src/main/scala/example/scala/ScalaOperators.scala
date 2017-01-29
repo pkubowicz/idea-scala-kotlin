@@ -1,9 +1,6 @@
 package example.scala
 
-import java.time.Duration
-
 import example.java.OperatorProvider
-import collection.JavaConverters._
 
 class ScalaOperators(operatorProvider: OperatorProvider) {
   def sumDiagonal(): Int = {
@@ -15,12 +12,10 @@ class ScalaOperators(operatorProvider: OperatorProvider) {
       if i == j
     } sum += list.get(i).get(j)
     sum
-//    val list = operatorProvider.compute().asScala.map(_.asScala)
-//    list.zipWithIndex.collect { case (l, i) if l.size > i => l(i) }.map(Integer2int).sum
   }
 
-  def twoComputationsTime(): Duration = {
-//    operatorProvider.lastComputationTime() + operatorProvider.lastComputationTime()
+  def twoComputationsTime(): java.time.Duration = {
+//    operatorProvider.lastComputationTime() + operatorProvider.lastComputationTime() // does not compile
     operatorProvider.lastComputationTime().plus(operatorProvider.lastComputationTime())
   }
 }

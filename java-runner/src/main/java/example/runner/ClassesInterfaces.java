@@ -40,7 +40,7 @@ class ClassesInterfaces implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.err.println("PlainScalaChainElement: " + new ScalaPlainChainElement().handle("foo"));
+        System.err.println("ScalaPlainChainElement: " + new ScalaPlainChainElement().handle("foo"));
 
         Named[] named = new Named[]{new KotlinDataWithInterface("name", "addr", 2),
 //                new example.scala.ScalaCaseWithInterface("name", "addr", 3)
@@ -71,15 +71,6 @@ class ClassesInterfaces implements Runnable {
         kotlinMenu.test();
     }
 
-    private static class FakeKotlinMenu extends KotlinMenu {
-        @Override
-        public void test() {
-            getButtons().forEach(KotlinButton::reset);
-        }
-
-//        @Override public void addButton(KotlinButton button) {} // won't compile - is final
-    }
-
     private static class FakeKotlinButton implements KotlinButton {
         @Override
         public boolean toggle() {
@@ -99,13 +90,13 @@ class ClassesInterfaces implements Runnable {
         }
     }
 
-    private static class FakeScalaMenu extends ScalaMenu {
+    private static class FakeKotlinMenu extends KotlinMenu {
         @Override
         public void test() {
-            buttons().foreach(button -> {button.reset() ; return null; });
+            getButtons().forEach(KotlinButton::reset);
         }
 
-        //        @Override public void addButton(ScalaButton button) {}
+//        @Override public void addButton(KotlinButton button) {} // won't compile - is final
     }
 
     private static class FakeScalaButton implements ScalaButton {
@@ -120,5 +111,14 @@ class ClassesInterfaces implements Runnable {
         }
 
 //        @Override public void reset() { System.err.println("I can but I won't override this"); }
+    }
+
+    private static class FakeScalaMenu extends ScalaMenu {
+        @Override
+        public void test() {
+            buttons().foreach(button -> {button.reset() ; return null; });
+        }
+
+        //        @Override public void addButton(ScalaButton button) {} // won't compile - is final
     }
 }

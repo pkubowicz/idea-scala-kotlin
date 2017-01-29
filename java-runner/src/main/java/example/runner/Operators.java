@@ -14,29 +14,25 @@ class Operators implements Runnable {
         // Scala
         ScalaTimeout.run();
         ScalaTimeout scalaTimeout50 = new ScalaTimeout(10).$times(3).$plus(new ScalaTimeout(20));
-        if (scalaTimeout50.millis() != 50) {
-            throw new AssertionError("timeout is " + scalaTimeout50);
-        }
+        assertEqual(50, scalaTimeout50.millis());
 
         ScalaOperators scalaOperators = new ScalaOperators(new OperatorProvider());
         System.err.println("Scala sum diagonal " + scalaOperators.sumDiagonal());
-        Duration tenMillisFromScala = scalaOperators.twoComputationsTime();
-        if (!tenMillisFromScala.equals(Duration.of(10, ChronoUnit.MILLIS))) {
-            throw new AssertionError("duration is " + tenMillisFromScala);
-        }
+        assertEqual(Duration.of(10, ChronoUnit.MILLIS), scalaOperators.twoComputationsTime());
 
         // Kotlin
         KotlinTimeout.run();
         KotlinTimeout kotlinTimeout50 = new KotlinTimeout(10).times(3).plus(new KotlinTimeout(20));
-        if (kotlinTimeout50.getMillis() != 50) {
-            throw new AssertionError("timeout is " + kotlinTimeout50);
-        }
+        assertEqual(50, kotlinTimeout50.getMillis());
 
         KotlinOperators kotlinOperators = new KotlinOperators(new OperatorProvider());
-        Duration tenMillisFromKotlin = kotlinOperators.twoComputationsTime();
-        if (!tenMillisFromKotlin.equals(Duration.of(10, ChronoUnit.MILLIS))) {
-            throw new AssertionError("duration is " + tenMillisFromKotlin);
-        }
         System.err.println("Kotlin sum diagonal " + kotlinOperators.sumDiagonal());
+        assertEqual(Duration.of(10, ChronoUnit.MILLIS), kotlinOperators.twoComputationsTime());
+    }
+
+    private static <T> void assertEqual(T expected, T actual) {
+        if (!actual.equals(expected)) {
+            throw new AssertionError("actual is " + actual);
+        }
     }
 }

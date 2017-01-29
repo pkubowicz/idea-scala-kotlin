@@ -29,7 +29,7 @@ class CaseDataDefaultParameters implements Runnable {
         new KotlinOpenFile("n2", "e2", "l2", false).setName("foo");
     }
 
-    private void defaultParameters() {
+    private void defaultParameters() { // also demonstrates toString()
         System.err.println("Scala");
         System.err.println(ScalaDefaults.createFile("other-name", "", "/tmp", false));
         System.err.println(ScalaDefaults.createFile$default$2()); // WTF? Does not return anything!

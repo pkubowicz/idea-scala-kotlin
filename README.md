@@ -1,5 +1,9 @@
 A comparison of Java interoperability in Scala and Kotlin just for educational purposes
 
+# Quickstart
+
+Run with `./gradlew build`. Start reading from `Runner.java`.
+
 # Features
 
 ## Good in both

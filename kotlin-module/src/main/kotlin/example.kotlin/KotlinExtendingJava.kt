@@ -15,7 +15,7 @@ class KotlinChainElement : BaseStringChainElement<Int>() {
 //            return null // won't compile
             throw IllegalArgumentException("check with handles() first")
         }
-        // o is a String now
+        // 'smart cast' - o is a String now
         assert(o[o.length - 1] == o.last())
         return o.last().toInt()
     }
