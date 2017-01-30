@@ -24,6 +24,8 @@ case class ScalaTimeout(millis: Int) {
   def +(other:ScalaTimeout) = ScalaTimeout(millis + other.millis)
 
   def *(amount: Int) = ScalaTimeout(millis * amount)
+
+  def *+-=-+*(amount: Int) = ScalaTimeout(millis * amount + amount - amount - amount + amount * amount)
 }
 
 object ScalaTimeout {

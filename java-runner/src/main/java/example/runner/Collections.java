@@ -21,6 +21,7 @@ class Collections implements Runnable {
         scala.collection.immutable.List<Object> notJavaList = scalaSeq.toList();
         List<Object> javaList = ImplicitConversionsToJava$.MODULE$.seq$u0020AsJavaList(scalaSeq);
         System.err.println("Scala sequence " + javaList);
+        // other problems: Scala Future
 
         // NB: returns a normal Java iterable, modifications fail in runtime
         Iterable<Integer> kotlinIterable = KotlinCollections.INSTANCE.oneTwoThree();

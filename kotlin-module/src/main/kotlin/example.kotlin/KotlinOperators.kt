@@ -33,6 +33,8 @@ data class KotlinTimeout(val millis: Int) {
     operator fun plus(other: KotlinTimeout) = KotlinTimeout(millis + other.millis)
 
     operator fun times(i: Int) = KotlinTimeout(millis * i)
+
+    // no strange operators possible https://kotlinlang.org/docs/reference/operator-overloading.html
 }
 
 
