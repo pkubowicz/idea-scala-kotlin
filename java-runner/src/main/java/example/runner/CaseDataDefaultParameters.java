@@ -17,7 +17,7 @@ class CaseDataDefaultParameters implements Runnable {
         ScalaFile scalaFile2 = new ScalaFile("n1", "e1", "l1", true);
         System.err.println("Scala are equal " + scalaFile1.equals(scalaFile2));
         System.err.println("Scala hash codes " + (scalaFile1.hashCode() == scalaFile2.hashCode()));
-
+        scalaFile1.executable();
 
         KotlinFile kotlinFile1 = new KotlinFile("n1", "e1", "l1", true);
         KotlinFile kotlinFile2 = new KotlinFile("n1", "e1", "l1", true);
@@ -30,11 +30,9 @@ class CaseDataDefaultParameters implements Runnable {
     }
 
     private void defaultParameters() { // also demonstrates toString()
-        System.err.println("Scala");
         System.err.println(ScalaDefaults.createFile("other-name", "other-ext", "/tmp", true));
         System.err.println(ScalaDefaults.createFile$default$2()); // WTF? Does not return anything!
 
-        System.err.println("Kotlin");
         System.err.println(KotlinDefaults.createFile("other-name", "other-ext", "/tmp", true));
         System.err.println(KotlinDefaults.createFile("other-name", "other-ext"));
         System.err.println(KotlinDefaults.createFile("other-name"));

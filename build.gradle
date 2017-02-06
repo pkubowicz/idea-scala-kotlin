@@ -26,13 +26,15 @@ subprojects {
             description = 'Counts size of JAR created from each module'
             group = 'Help'
             doLast {
-                int sum = 0
+                println fileTree(sourceSets.main.output.classesDir) { include '**/*.class' }.files.size() + " classes"
+
+                int sumBytes = 0
                 def formatString = "%-36s %6.1f KB"
                 zipTree(distZip.archivePath).matching { include '*/lib/*' }.files.sort().each {
-                    sum += it.length()
+                    sumBytes += it.length()
                     println String.format(formatString, it.name, it.length() / 1024)
                 }
-                println String.format(formatString, "ALL", sum / 1024)
+                println String.format(formatString, "ALL", sumBytes / 1024)
             }
         }
         tasks.remove(run)

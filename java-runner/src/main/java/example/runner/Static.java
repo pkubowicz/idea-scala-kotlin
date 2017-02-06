@@ -9,20 +9,22 @@ class Static implements Runnable {
     @Override
     public void run() {
         ScalaStatic.describe();
-        ScalaStatic.VERSION(); // this is a field in Kotlin
         KotlinStatic.Companion.describeKotlin();
 //        KotlinStatic.describeKotlin(); // does not compile
         KotlinStatic.Companion.describe();
         KotlinStatic.describe();
+
+        ScalaStatic.VERSION(); // this is a field in Kotlin
         System.err.println(KotlinStatic.VERSION);
 //        System.err.println(KotlinStatic.kotlinVersion); // does not compile
         System.err.println(KotlinStatic.Companion.getKotlinVersion());
         System.err.println(KotlinStatic.OLD_VERSIONS);
 
-        ScalaSingleton.VERSION();
         ScalaSingleton.describe();
-        System.err.println(KotlinSingleton.VERSION);
         KotlinSingleton.INSTANCE.describe();
+
+        ScalaSingleton.VERSION();
+        System.err.println(KotlinSingleton.VERSION);
 
         try {
             ScalaStatic.throwSomething();

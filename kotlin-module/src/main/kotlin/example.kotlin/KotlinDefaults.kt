@@ -1,5 +1,9 @@
 package example.kotlin
 
+data class KotlinFile(val name: String, val extension: String, val location: String, val executable: Boolean)
+
+data class KotlinOpenFile(var name: String, var extension: String, var location: String, var executable: Boolean)
+
 object KotlinDefaults {
     @JvmStatic
     @JvmOverloads
@@ -15,6 +19,3 @@ object KotlinDefaults {
 //        example.java.JavaManyParameters.createFile(location = "/var/tmp") // won't compile (yet)
     }
 }
-
-data class KotlinFile(val name: String, val extension: String, val location: String, val executable: Boolean)
-data class KotlinOpenFile(var name: String, var extension: String, var location: String, var executable: Boolean)

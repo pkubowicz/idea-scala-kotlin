@@ -9,12 +9,12 @@ public class NullUtils {
         return "version " + VERSION;
     }
 
-    // standard javax.annotation, not JetBrains
-    public static int inspectNonnull(@Nonnull Object object) {
-        return object.hashCode();
+    public static Integer unknownInspect(Object object) {
+        return safeInspect(object);
     }
 
-    @Nullable
+    // standard javax.annotation, not JetBrains one
+    @Nonnull
     public static Integer safeInspect(@Nullable Object object) {
         if (object == null) {
             return -1;
@@ -22,7 +22,7 @@ public class NullUtils {
         return inspectNonnull(object);
     }
 
-    public static Integer unknownInspect(Object object) {
-        return safeInspect(object);
+    public static int inspectNonnull(@Nonnull Object object) {
+        return object.hashCode();
     }
 }
