@@ -1,6 +1,6 @@
 buildscript {
-    ext.kotlin_version = '1.0.6'
-//    ext.kotlin_version = '1.1.0-rc-91'
+//    ext.kotlin_version = '1.0.6'
+    ext.kotlin_version = '1.1.0-rc-91'
     repositories {
         maven { url "http://dl.bintray.com/kotlin/kotlin-eap-1.1" }
         mavenCentral()
@@ -16,12 +16,22 @@ apply plugin: "jacoco"
 
 dependencies {
     compile project(":java-module")
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-//    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    compile(kotlin_version.startsWith('1.0')
+        ? "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        : "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version")
 }
 
 jacoco {
     toolVersion = "0.7.9"
+}
+
+compileKotlin {
+    kotlinOptions {
+        if (!kotlin_version.startsWith('1.0')) {
+            jvmTarget = '1.8'
+            freeCompilerArgs += '-java-parameters'
+        }
+    }
 }
 
 test.finalizedBy jacocoTestReport

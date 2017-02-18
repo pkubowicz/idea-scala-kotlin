@@ -13,7 +13,8 @@ Run with `./gradlew build`. Start reading from `Runner.java`.
 
 ## Good in Scala
 
-- good translation to static methods when used in Java 
+- good translation to static methods when used in Java
+- can use named parameters on Java code compiled with `-parameters`
 - sometimes you can use a lambda to create an anonymous class instance
 
 ## Bad in Scala

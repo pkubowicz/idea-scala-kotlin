@@ -1,5 +1,6 @@
 plugins {
     id 'com.github.ben-manes.versions' version '0.14.0' apply false
+    id 'com.github.johnrengelman.shadow' version '1.2.4' apply false
 }
 
 subprojects {
@@ -15,6 +16,10 @@ subprojects {
 
     dependencies {
         testCompile group: 'junit', name: 'junit', version:'4.12'
+    }
+
+    tasks.withType(JavaCompile) {
+        options.compilerArgs += ["-parameters"]
     }
 
     if (it.name in ["java-guava", "kotlin-module", "scala-module"]) {

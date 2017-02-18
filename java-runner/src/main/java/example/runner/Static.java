@@ -28,7 +28,8 @@ class Static implements Runnable {
 
         try {
             ScalaStatic.throwSomething();
-        } catch (Exception e) { // checked IOException is thrown but I cannot catch it because it is not defined
+        } catch (Exception e) { // checked IOException is thrown but I cannot catch it
+            // because throwSomething() does not declare it
             System.err.println("Expected exception");
             e.printStackTrace();
         }

@@ -17,7 +17,8 @@ class Nulls implements Runnable {
             e.printStackTrace();
         }
         try {
-            System.err.println(kotlinNulls.passwordFromEnv().length()); // IDE warns of NPE
+            // IDE warns of NPE
+            System.err.println(kotlinNulls.passwordFromEnv().length());
         } catch (Exception e) {
             System.err.println("Expected exception after calling Kotlin");
             e.printStackTrace();
