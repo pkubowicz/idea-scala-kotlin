@@ -3,18 +3,21 @@ package example.kotlin
 interface KotlinButton {
     fun toggle(): Boolean
     fun caption(): String
-    fun reset() {}
+    fun reset() {} // default impl
 }
 
-// classes are closed by default - remove open and Java won't compile
+// classes are closed by default
+// remove open and Java won't compile
 open class KotlinMenu {
-    protected val buttons = mutableListOf<KotlinButton>()
+    protected val buttons =
+            mutableListOf<KotlinButton>()
 
     fun addButton(button: KotlinButton) {
-        buttons.add(button)
+        buttons += button
     }
 
-    open fun test() {
+    open fun test(i: Int): Int {
         println("${buttons.size} buttons")
+        return buttons.size
     }
 }

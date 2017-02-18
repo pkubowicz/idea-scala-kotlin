@@ -6,11 +6,9 @@ import example.kotlin.KotlinButton;
 import example.kotlin.KotlinChainElement;
 import example.kotlin.KotlinDataWithInterface;
 import example.kotlin.KotlinMenu;
-import example.kotlin.KotlinShorterChainElement;
 import example.scala.ScalaButton;
 import example.scala.ScalaChainElement;
 import example.scala.ScalaMenu;
-import example.scala.ScalaPlainChainElement;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
@@ -23,27 +21,29 @@ class ClassesInterfaces implements Runnable {
     }
 
     private void extendingJava() {
-        // does not compile
-//        ChainElement<Integer> plainScalaChainElement = new example.scala.PlainScalaChainElement();
-
         List<ChainElement<Integer>> responsibilityChain = Arrays.asList(
-                new KotlinChainElement(),
-                new ScalaChainElement()
+                new ScalaChainElement(),
+                new KotlinChainElement()
         );
+
+        // does not compile
+//        ChainElement<Integer> plain = new example.scala.ScalaPlainChainElement();
+//        ChainElement<Long> scalaLong = new example.scala.ScalaLongChainElement();
+        ChainElement<Long> kotlinLong = new example.kotlin.KotlinLongChainElement();
 
         handle(responsibilityChain, "Java:A");
         handle(responsibilityChain, "Kotlin:B");
         handle(responsibilityChain, "Scala:C");
 
         Named[] named = new Named[]{new KotlinDataWithInterface("name", "addr", 2),
-//                new example.scala.ScalaCaseWithInterface("name", "addr", 3)
+                new example.scala.ScalaCaseWithInterface("name", "addr", 3)
         };
     }
 
     private static void handle(List<ChainElement<Integer>> responsibilityChain, Object object) {
         for (ChainElement<Integer> chainElement : responsibilityChain) {
             if (chainElement.handles(object)) {
-                System.err.printf("%s handled as %s by %s\n", object, chainElement.handle(object), chainElement);
+                System.err.printf("%s handled as %s by %s %s\n", object, chainElement.handle(object), chainElement, chainElement.describe());
                 return;
             }
         }
@@ -53,7 +53,7 @@ class ClassesInterfaces implements Runnable {
     private void toExtend() {
         ScalaMenu scalaMenu = new FakeScalaMenu();
         scalaMenu.addButton(new FakeScalaButton());
-        scalaMenu.test();
+        scalaMenu.test(0);
 
         KotlinMenu kotlinMenu = new FakeKotlinMenu();
         KotlinButton button = new FakeKotlinButton();
@@ -61,7 +61,7 @@ class ClassesInterfaces implements Runnable {
             return;
         }
         kotlinMenu.addButton(button);
-        kotlinMenu.test();
+        kotlinMenu.test(0);
     }
 
     private static class FakeScalaButton implements ScalaButton {
@@ -92,24 +92,27 @@ class ClassesInterfaces implements Runnable {
 
         @Override
         public void reset() {
-            // https://youtrack.jetbrains.com/issue/KT-4779 - this is not needed in Scala version of this class
+            // https://youtrack.jetbrains.com/issue/KT-4779
+            // this is not needed in Scala version of this class
             System.err.println("I shouldn't need to override this!");
         }
     }
 
     private static class FakeScalaMenu extends ScalaMenu {
         @Override
-        public void test() {
+        public int test(int i) {
             buttons().foreach(button -> {button.reset() ; return null; });
+            return buttons().size();
         }
 
-        //        @Override public void addButton(ScalaButton button) {} // won't compile - is final
+//        @Override public void addButton(ScalaButton button) {} // won't compile - is final
     }
 
     private static class FakeKotlinMenu extends KotlinMenu {
         @Override
-        public void test() {
+        public int test(int i) {
             getButtons().forEach(KotlinButton::reset);
+            return getButtons().size();
         }
 
 //        @Override public void addButton(KotlinButton button) {} // won't compile - is final

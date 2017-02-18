@@ -3,16 +3,21 @@ package example.kotlin
 import example.java.NullUtils
 
 class KotlinNulls {
-    fun isAdmin(username: String?) = username == "admin" // no more Yoda statements!
+    fun isAdmin(username: String?) =
+            username == "admin" // no more Yoda statements!
 
     fun passwordFromEnv(): String? {
         val passwordEnv : String? = System.getenv("PASSWORD")
 //        println(passwordEnv.length)
         if (passwordEnv == null) {
-//            val inspect: Int = NullUtils.inspectNonnull(passwordEnv) // returns Int, won't compile because has nonnull arg
-            val unknownInspect: Int = NullUtils.unknownInspect(passwordEnv) // returns Int!
-            val unknownInspect2: Int? = NullUtils.unknownInspect(passwordEnv) // returns Int!
-            val safeInspect: Int = NullUtils.safeInspect(passwordEnv) // returns Int
+            // won't compile because has nonnull arg
+//            val inspect = NullUtils.inspectNonnull(passwordEnv)
+            val unknownInspect: Int = //returns Int!
+                    NullUtils.unknownInspect(passwordEnv)
+            val unknownInspect2: Int? =
+                    NullUtils.unknownInspect(passwordEnv)
+            val safeInspect: Int = // returns Int
+                    NullUtils.safeInspect(passwordEnv)
             println("Inspected " + unknownInspect + safeInspect + unknownInspect2)
             return null
         }
