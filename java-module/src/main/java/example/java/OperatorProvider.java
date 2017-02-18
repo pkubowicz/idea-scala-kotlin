@@ -7,7 +7,8 @@ import java.util.List;
 
 public class OperatorProvider {
     public List<List<Integer>> compute() {
-        return Arrays.asList(Arrays.asList(1, 2), Arrays.asList(3, 4));
+        return Arrays.asList(Arrays.asList(1, 2),
+                Arrays.asList(3, 4));
     }
 
     public Duration lastComputationTime() {

@@ -10,7 +10,9 @@ public class LambdaConsumer {
     }
 
     public void printInts(Function<Integer, String> stringifier) {
-        Arrays.asList(1500, 100, 900).forEach(i -> System.err.printf("%d becomes %s\n", i, stringifier.apply(i)));
+        Arrays.asList(1500, 100, 900).forEach(i ->
+                System.err.printf("%d becomes %s\n",
+                        i, stringifier.apply(i)));
     }
 
     public static abstract class AbstractClass {

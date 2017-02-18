@@ -15,7 +15,8 @@ class KotlinStatic {
         @JvmStatic // not needed in Scala 1.12.1
         fun describe() : String = "version " + VERSION + NullUtils.VERSION
 
-        fun describeKotlin() : String = "version " + kotlinVersion + " using " + NullUtils.describe()
+        fun describeKotlin() : String = "version " + kotlinVersion +
+                " using " + NullUtils.describe()
 
         fun unused() : String = "unused"
 

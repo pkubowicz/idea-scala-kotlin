@@ -15,24 +15,31 @@ class ScalaOperators(operatorProvider: OperatorProvider) {
   }
 
   def twoComputationsTime(): java.time.Duration = {
-//    operatorProvider.lastComputationTime() + operatorProvider.lastComputationTime() // does not compile
-    operatorProvider.lastComputationTime().plus(operatorProvider.lastComputationTime())
+    // does not compile
+//    operatorProvider.lastComputationTime() +
+//      operatorProvider.lastComputationTime()
+    operatorProvider.lastComputationTime()
+      .plus(operatorProvider.lastComputationTime())
   }
-}
-
-case class ScalaTimeout(millis: Int) {
-  def +(other:ScalaTimeout) = ScalaTimeout(millis + other.millis)
-
-  def *(amount: Int) = ScalaTimeout(millis * amount)
-
-  def *+-=-+*(amount: Int) = ScalaTimeout(millis * amount + amount - amount - amount + amount * amount)
 }
 
 object ScalaTimeout {
   def run(): Unit = {
-    val timeout50 = ScalaTimeout(10) * 3 + ScalaTimeout(20)
+    val timeout50 = ScalaTimeout(10) * 3 +
+      ScalaTimeout(20)
     if (timeout50.millis != 50) {
       throw new AssertionError(s"timeout is $timeout50")
     }
   }
+}
+
+case class ScalaTimeout(millis: Int) {
+  def +(other:ScalaTimeout) =
+    ScalaTimeout(millis + other.millis)
+
+  def *(amount: Int) =
+    ScalaTimeout(millis * amount)
+
+  def *+-=-+*(amount: Int) =
+    ScalaTimeout(millis * amount + amount - amount - amount + amount * amount)
 }

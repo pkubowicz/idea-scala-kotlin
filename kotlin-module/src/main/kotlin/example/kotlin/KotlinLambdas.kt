@@ -3,24 +3,29 @@ package example.kotlin
 import example.java.LambdaConsumer
 import java.util.function.Consumer
 
-class KotlinLambdas(private val consumer: LambdaConsumer) {
+class KotlinLambdas(private val java: LambdaConsumer) {
     fun passLambdasToJava() {
-        consumer.consumeInts { println("Kotlin prints $it") }
-        val consumer1: (Int) -> Unit = { println("Kotlin2 prints $it") }
-        this.consumer.consumeInts(consumer1)
-        val consumer2: Consumer<Int> = Consumer { println("Kotlin3 prints $it") }
+        java.consumeInts { println("Kotlin prints $it") }
+        val consumer1: (Int) -> Unit =
+                { println("Kotlin2 prints $it") }
+        java.consumeInts(consumer1)
+        val consumer2: Consumer<Int> =
+                Consumer { println("Kotlin3 prints $it") }
 
-        val stringifier : (Int) -> String = { i -> "[$i]" }
-        consumer.printInts(stringifier)
-        consumer.printInts { i -> "[$i]" }
+        val stringifier : (Int) -> String =
+                { i -> "[$i]" }
+        java.printInts(stringifier)
+        java.printInts { i -> "[$i]" }
 
-        var instance: LambdaConsumer.AbstractClass = object : LambdaConsumer.AbstractClass() {
+        var instance: LambdaConsumer.AbstractClass =
+                object : LambdaConsumer.AbstractClass() {
             override fun abstractMethod() {
                 utilityMethod()
                 println("foo")
             }
         }
-//        instance = LambdaConsumer.AbstractClass { println("foo") } // wont' compile - possible in Scala
+        // wont' compile - possible in Scala
+//        instance = LambdaConsumer.AbstractClass { println("foo") }
     }
 
     fun useConsumer(consumer: (Int) -> Unit) {

@@ -4,21 +4,28 @@ import java.util.function.Consumer
 
 import example.java.LambdaConsumer
 
-class ScalaLambdas(consumer: LambdaConsumer) {
+class ScalaLambdas(java: LambdaConsumer) {
   def passLambdasToJava(): Unit = {
-    consumer.consumeInts((i) => println(s"Scala prints $i"))
-    val consumer1: Int => Unit = (i) => println("Scala prints $i")
-//    provider.consumeInts(consumer1) // won't compile
-    val consumer2: Consumer[Int] = (i) => println("Scala prints $i")
+    java.consumeInts(
+      (i) => println(s"Scala prints $i"))
+    val consumer1: Int => Unit =
+      (i) => println("Scala prints $i")
+//    java.consumeInts(consumer1) // won't compile
+    val consumer2: Consumer[Integer] =
+      (i) => println("Scala prints $i")
 
-    val stringifierScala: Int => String = (i) => s"[$i]"
-    val stringifier: Integer => String = (i) => s"[$i]"
-//    consumer.printInts(stringifierScala) // won't compile
-//    consumer.printInts(stringifier) // won't compile
-    consumer.printInts((i) => s"[$i]")
+    val stringifierScala: Int => String =
+      (i) => s"[$i]"
+    val stringifier: Integer => String =
+      (i) => s"[$i]"
+//    java.printInts(stringifierScala) // won't compile
+//    java.printInts(stringifier) // won't compile
+    java.printInts((i) => s"[$i]")
 
-    // another false suggestion from Idea: 'new AbstractClass' cannot be removed
-    var instance: LambdaConsumer.AbstractClass = new LambdaConsumer.AbstractClass {
+    // another false suggestion from Idea:
+    // 'new AbstractClass' cannot be removed
+    var instance: LambdaConsumer.AbstractClass =
+    new LambdaConsumer.AbstractClass {
       override def abstractMethod(): Unit = {
         utilityMethod()
       }

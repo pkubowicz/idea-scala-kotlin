@@ -6,7 +6,8 @@ import java.util.*
 object KotlinCollections {
     fun oneTwoThree(): Iterable<Int> {
         val result = listOf(1, 2, 3)
-//        result[1] = 100 // does dot compile - is not mutable
+        // does dot compile - is not mutable
+//        result[1] = 100
         return result
     }
 
