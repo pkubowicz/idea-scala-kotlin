@@ -54,11 +54,7 @@ java-module 1.5s Kotlin 4s Scala 16s
 5    15   102
 ```
 
-More classes in Kotlin (it generate anonymous classes)
-
-    ls -1 {kotlin,scala}-module/build/classes/main/example/*
-
-Compare size with dependencies: `gradle dependenciesSize`
+More classes in Kotlin (it generate anonymous classes). Compare size with dependencies: `gradle dependenciesSize`
 
 # Testing refactoring
 
