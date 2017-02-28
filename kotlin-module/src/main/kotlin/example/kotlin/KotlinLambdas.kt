@@ -36,7 +36,15 @@ class KotlinLambdas(private val java: LambdaConsumer) {
         predicate(50)
     }
 
+    fun usePredicateNoJavaVersion(predicate: (Int) -> Boolean) {
+        predicate(50)
+    }
+
     fun useFunction2(fun2: (Int, String) -> String) {
+        fun2(10, "foo")
+    }
+
+    fun useFunction2NoJavaVersion(fun2: (Int, String) -> String) {
         fun2(10, "foo")
     }
 

@@ -1,11 +1,15 @@
 package example.scala
 
-case class ScalaFile(name: String, extension: String,
-                     location: String, executable: Boolean)
+case class ScalaFile(name: String,
+                     extension: String,
+                     location: String,
+                     executable: Boolean)
 
 
-case class ScalaCaseClassCannotBeOpen(name: String, extension: String,
-                                      location: String, executable: Boolean)
+case class ScalaCaseClassCannotBeOpen(name: String,
+                                      extension: String,
+                                      location: String,
+                                      executable: Boolean)
 
 object ScalaDefaults {
   def createFile(name: String = "removeme",
@@ -22,6 +26,7 @@ object ScalaDefaults {
 
     println("Scala calls Java with named parameters: " +
       example.java.JavaManyParameters.createFile(
-        location = "/tmp", name = "removeme", executable = false, extension = ".txt"))
+        location = "/tmp", name = "removeme",
+        executable = false, extension = ".txt"))
   }
 }
