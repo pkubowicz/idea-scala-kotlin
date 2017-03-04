@@ -28,6 +28,7 @@ object ScalaCollections {
   }
 
   def jdk8Methods(): Unit = {
-    MapCalculator.calculate().computeIfAbsent("localhost", (host) => Collections.emptyMap())
+    MapCalculator.calculate().computeIfAbsent("localhost",
+      (host) => Collections.emptyMap())
   }
 }

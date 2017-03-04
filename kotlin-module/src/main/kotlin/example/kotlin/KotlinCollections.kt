@@ -26,7 +26,7 @@ object KotlinCollections {
     }
 
     fun jdk8Methods() {
-        // requires Kotlin 1.1 to compile
-//        MapCalculator.calculate().computeIfAbsent("localhost", { host -> Collections.emptyMap() })
+        MapCalculator.calculate().computeIfAbsent("localhost",
+                { host -> Collections.emptyMap() })
     }
 }
