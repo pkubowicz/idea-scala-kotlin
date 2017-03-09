@@ -3,7 +3,8 @@ package example.runner;
 import example.java.ParametersReflection;
 import example.kotlin.KotlinDefaults;
 import example.kotlin.KotlinFile;
-import example.kotlin.KotlinOpenFile;
+import example.kotlin.KotlinMutFile;
+import example.lombok.LombokFile;
 import example.scala.ScalaDefaults;
 import example.scala.ScalaFile;
 
@@ -31,8 +32,10 @@ class CaseDataDefaultParameters implements Runnable {
 //        kotlinFile1.isExecutable(); // the only problem
         kotlinFile1.getExecutable();
 //        kotlinFile1.setName("foo"); // no setters
-        new KotlinOpenFile("n2", "e2", "l2", false)
+        new KotlinMutFile("n2", "e2", "l2", false)
                 .setName("foo");
+
+        new LombokFile("n1", "e1", "l1", true).isExecutable();
     }
 
     private void defaultParameters() { // also demonstrates toString()

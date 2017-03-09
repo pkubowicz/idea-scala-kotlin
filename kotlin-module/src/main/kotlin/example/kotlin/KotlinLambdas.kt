@@ -6,11 +6,12 @@ import java.util.function.Consumer
 class KotlinLambdas(private val java: LambdaConsumer) {
     fun passLambdasToJava() {
         java.consumeInts { println("Kotlin prints $it") }
-        val consumer1: (Int) -> Unit =
+        val consumer1: (Int) -> Unit = // Kotlin fun
                 { println("Kotlin2 prints $it") }
         java.consumeInts(consumer1)
-        val consumer2: Consumer<Int> =
+        val consumer2: Consumer<Int> = // Java fun
                 Consumer { println("Kotlin3 prints $it") }
+        java.consumeInts(consumer2)
 
         val stringifier : (Int) -> String =
                 { i -> "[$i]" }

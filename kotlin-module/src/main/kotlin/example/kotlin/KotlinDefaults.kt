@@ -6,10 +6,10 @@ data class KotlinFile(val name: String,
                       val executable: Boolean)
 
 
-data class KotlinOpenFile(var name: String,
-                          var extension: String,
-                          var location: String,
-                          var executable: Boolean)
+data class KotlinMutFile(var name: String,
+                         var extension: String,
+                         var location: String,
+                         var executable: Boolean)
 
 object KotlinDefaults {
     @JvmStatic

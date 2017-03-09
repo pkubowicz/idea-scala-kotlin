@@ -17,6 +17,7 @@ class KotlinChainElement
 //            return null // won't compile
             throw IllegalArgumentException("check with handles() first")
         }
+//        return o.last() as Int // warns
         return o.last().toInt()
     }
 

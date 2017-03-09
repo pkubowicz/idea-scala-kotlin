@@ -12,7 +12,7 @@ class KotlinVarargs {
         System.err.println(java.lang.String.format(
                 "in Kotlin: %d:%d:%d", *time))
 
-        // * works in Kolin as well
+        // * works in Kotlin as well
         val nums = intArrayOf(1, 2, 4)
         format(*nums)
     }

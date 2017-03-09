@@ -8,11 +8,12 @@ class ScalaLambdas(java: LambdaConsumer) {
   def passLambdasToJava(): Unit = {
     java.consumeInts(
       (i) => println(s"Scala prints $i"))
-    val consumer1: Int => Unit =
+    val consumer1: Int => Unit = // Scala fun
       (i) => println("Scala prints $i")
 //    java.consumeInts(consumer1) // won't compile
-    val consumer2: Consumer[Integer] =
+    val consumer2: Consumer[Integer] = // Java fun
       (i) => println("Scala prints $i")
+    java.consumeInts(consumer2)
 
     val stringifierScala: Int => String =
       (i) => s"[$i]"

@@ -5,6 +5,7 @@ mainClassName = 'example.runner.Runner'
 applicationDefaultJvmArgs = ["-ea"]
 
 dependencies {
+    compile project(':java-guava')
     compile project(':kotlin-module')
     compile project(':scala-module')
 }

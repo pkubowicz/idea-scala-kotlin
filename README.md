@@ -24,6 +24,7 @@ Run with `./gradlew build`. Start reading from `Runner.java`.
 - using collections from the other language: need to Google for complicated conversions in both directions
 - when overriding methods, Scala `Int` is not Java `Integer`
 - some very confusing syntactic magic: `foo()` can be understood as `foo(null)`
+- cannot use function instances as Java functional interfaces (but inline functions are fine) - see `ScalaLambdas.passLambdasToJava`
 
 ## Good in Kotlin
 
@@ -35,6 +36,7 @@ Run with `./gradlew build`. Start reading from `Runner.java`.
 - default method parameters used in Java: work great if you use a proper annotation, if you don't use - work as in Scala
 - POJO-compatible data classes
 - smart casts
+- can use function instances as Java functional interfaces - see `KotlinLambdas.passLambdasToJava`
 
 ## Bad in Kotlin
 
@@ -45,6 +47,7 @@ Run with `./gradlew build`. Start reading from `Runner.java`.
 ## Bad in both
 
 - when implementing lambdas returning Unit ('void') in Java you need to return null
+- cannot use Java functional interface instances as K/S functions (but inline lambdas are fine) - see `Lambdas.passLambdasFromJava`
 
 # Compilation time and result size
 

@@ -33,6 +33,9 @@ class Collections implements Runnable {
             e.printStackTrace();
         }
         System.err.println("Kotlin iterable " + kotlinIterable);
+
+        ScalaCollections.oneTwoThreeMutable();
+        KotlinCollections.INSTANCE.oneTwoThreeMutable();
     }
 
     private void maps() {

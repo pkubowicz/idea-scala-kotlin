@@ -8,23 +8,23 @@ import example.scala.ScalaStatic;
 class Static implements Runnable {
     @Override
     public void run() {
-        ScalaStatic.describe();
-        KotlinStatic.Companion.describeKotlin();
-//        KotlinStatic.describeKotlin(); // does not compile
-        KotlinStatic.Companion.describe();
-        KotlinStatic.describe();
-
         ScalaStatic.VERSION(); // this is a field in Kotlin
         System.err.println(KotlinStatic.VERSION);
 //        System.err.println(KotlinStatic.kotlinVersion); // does not compile
         System.err.println(KotlinStatic.Companion.getKotlinVersion());
         System.err.println(KotlinStatic.OLD_VERSIONS);
 
-        ScalaSingleton.describe();
-        KotlinSingleton.INSTANCE.describe();
+        ScalaStatic.describe();
+        KotlinStatic.Companion.describeKotlin();
+//        KotlinStatic.describeKotlin(); // does not compile
+        KotlinStatic.Companion.describe();
+        KotlinStatic.describe();
 
         ScalaSingleton.VERSION();
         System.err.println(KotlinSingleton.VERSION);
+
+        ScalaSingleton.describe();
+        KotlinSingleton.INSTANCE.describe();
 
         try {
             ScalaStatic.throwSomething();

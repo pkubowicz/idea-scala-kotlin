@@ -51,12 +51,12 @@ class ClassesInterfaces implements Runnable {
     }
 
     private void toExtend() {
-        ScalaMenu scalaMenu = new FakeScalaMenu();
-        scalaMenu.addButton(new FakeScalaButton());
+        ScalaMenu scalaMenu = new ExtendingScalaMenu();
+        scalaMenu.addButton(new ExtendingScalaButton());
         scalaMenu.test(0);
 
-        KotlinMenu kotlinMenu = new FakeKotlinMenu();
-        KotlinButton button = new FakeKotlinButton();
+        KotlinMenu kotlinMenu = new ExtendingKotlinMenu();
+        KotlinButton button = new ExtendingKotlinButton();
         if (button.caption() == null) { // IDE understands this could not be null
             return;
         }
@@ -64,7 +64,7 @@ class ClassesInterfaces implements Runnable {
         kotlinMenu.test(0);
     }
 
-    private static class FakeScalaButton implements ScalaButton {
+    private static class ExtendingScalaButton implements ScalaButton {
         @Override
         public boolean toggle() {
             return false;
@@ -78,7 +78,7 @@ class ClassesInterfaces implements Runnable {
 //        @Override public void reset() { System.err.println("I can but I won't override this"); }
     }
 
-    private static class FakeKotlinButton implements KotlinButton {
+    private static class ExtendingKotlinButton implements KotlinButton {
         @Override
         public boolean toggle() {
             return false;
@@ -98,7 +98,7 @@ class ClassesInterfaces implements Runnable {
         }
     }
 
-    private static class FakeScalaMenu extends ScalaMenu {
+    private static class ExtendingScalaMenu extends ScalaMenu {
         @Override
         public int test(int i) {
             buttons().foreach(button -> {button.reset() ; return null; });
@@ -108,7 +108,7 @@ class ClassesInterfaces implements Runnable {
 //        @Override public void addButton(ScalaButton button) {} // won't compile - is final
     }
 
-    private static class FakeKotlinMenu extends KotlinMenu {
+    private static class ExtendingKotlinMenu extends KotlinMenu {
         @Override
         public int test(int i) {
             getButtons().forEach(KotlinButton::reset);

@@ -7,7 +7,7 @@ import example.java.MapCalculator
 object ScalaCollections {
   def oneTwoThree(): scala.collection.immutable.Seq[Int] = {
     val result = List(1, 2, 3)
-    // does dot compile - is not mutable
+    // does not compile - is not mutable
 //    result(1) = 500
     result
   }
