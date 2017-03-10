@@ -10,6 +10,13 @@ abstract class BaseStringChainElement[T]
     o.isInstanceOf[String] && o.asInstanceOf[String].startsWith("Scala")
 }
 
+class ScalaPlainChainElement
+  extends BaseStringChainElement[Int] {
+  // Ctrl + O (Code -> Override Method) does not suggest handle()
+  override def handle(o: scala.Any): Int =
+    Integer2int(null)
+}
+
 class ScalaChainElement
   extends BaseStringChainElement[Integer] {
   @Nonnull // Int is not Integer!
@@ -24,13 +31,6 @@ class ScalaChainElement
 
   override def describe(): String =
     "I don't need to override this but I will"
-}
-
-class ScalaPlainChainElement
-  extends BaseStringChainElement[Int] {
-  // Ctrl + O (Code -> Override Method) does not suggest handle()
-  override def handle(o: scala.Any): Int =
-    Integer2int(null)
 }
 
 class ScalaLongChainElement // needs java.lang.Long

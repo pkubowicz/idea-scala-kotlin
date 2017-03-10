@@ -20,6 +20,7 @@ class Collections implements Runnable {
         Seq<Object> scalaSeq = ScalaCollections.oneTwoThree();
         scala.collection.immutable.List<Object> notJavaList = scalaSeq.toList();
         List<Object> javaList = ImplicitConversionsToJava$.MODULE$.seq$u0020AsJavaList(scalaSeq);
+        // haven't found how to get List<Integer>
         System.err.println("Scala sequence " + javaList);
         // other problems: Scala Future
 
@@ -35,7 +36,7 @@ class Collections implements Runnable {
         System.err.println("Kotlin iterable " + kotlinIterable);
 
         ScalaCollections.oneTwoThreeMutable();
-        KotlinCollections.INSTANCE.oneTwoThreeMutable();
+        Iterable<Integer> mutableKotlinIterable = KotlinCollections.INSTANCE.oneTwoThreeMutable();
     }
 
     private void maps() {

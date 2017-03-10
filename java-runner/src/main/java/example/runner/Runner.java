@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Runner {
     public static void main(String[] args) {
         Arrays.asList(new Runnable[]{
+
                 new Static(),
                 new CaseDataDefaultParameters(),
                 new Nulls(),
@@ -19,6 +20,8 @@ public class Runner {
             System.err.flush();
             r.run();
             System.out.flush();
+            System.err.flush();
+            System.err.println("\n\n");
             System.err.flush();
         });
     }

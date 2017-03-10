@@ -21,7 +21,7 @@ Run with `./gradlew build`. Start reading from `Runner.java`.
 
 - calling Java varargs from Scala is sometimes impossible
 - calling Scala varargs from Java is very inconvenient if Scala API does not use a special annotation
-- using collections from the other language: need to Google for complicated conversions in both directions
+- using collections from the other language: need to Google for [complicated conversions](http://stackoverflow.com/questions/17737631/convert-from-scala-collection-seqstring-to-java-util-liststring-in-java-code) in both directions
 - when overriding methods, Scala `Int` is not Java `Integer`
 - some very confusing syntactic magic: `foo()` can be understood as `foo(null)`
 - cannot use function instances as Java functional interfaces (but inline functions are fine) - see `ScalaLambdas.passLambdasToJava`

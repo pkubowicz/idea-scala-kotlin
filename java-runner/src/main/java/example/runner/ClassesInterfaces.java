@@ -52,11 +52,11 @@ class ClassesInterfaces implements Runnable {
 
     private void toExtend() {
         ScalaMenu scalaMenu = new ExtendingScalaMenu();
-        scalaMenu.addButton(new ExtendingScalaButton());
+        scalaMenu.addButton(new ImplementingScalaButton());
         scalaMenu.test(0);
 
         KotlinMenu kotlinMenu = new ExtendingKotlinMenu();
-        KotlinButton button = new ExtendingKotlinButton();
+        KotlinButton button = new ImplementingKotlinButton();
         if (button.caption() == null) { // IDE understands this could not be null
             return;
         }
@@ -64,7 +64,7 @@ class ClassesInterfaces implements Runnable {
         kotlinMenu.test(0);
     }
 
-    private static class ExtendingScalaButton implements ScalaButton {
+    private static class ImplementingScalaButton implements ScalaButton {
         @Override
         public boolean toggle() {
             return false;
@@ -78,7 +78,7 @@ class ClassesInterfaces implements Runnable {
 //        @Override public void reset() { System.err.println("I can but I won't override this"); }
     }
 
-    private static class ExtendingKotlinButton implements KotlinButton {
+    private static class ImplementingKotlinButton implements KotlinButton {
         @Override
         public boolean toggle() {
             return false;

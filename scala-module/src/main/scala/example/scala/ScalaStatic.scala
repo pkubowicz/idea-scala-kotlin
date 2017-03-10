@@ -29,7 +29,7 @@ class ScalaStatic {
 
   def instanceRun(): Unit = { // unused but no warning in IDE
     describe()
-    ScalaSingleton.describe() + ScalaSingleton.VERSION
+    ScalaSingleton.describe() + VERSION
   }
 }
 

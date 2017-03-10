@@ -10,6 +10,12 @@ abstract class BaseStringChainElement<T> :
             o is String && o.startsWith("Kotlin")
 }
 
+class KotlinShorterChainElement :
+        BaseStringChainElement<Int>() {
+    override fun handle(o: Any) =
+            (o as String).last().toInt()
+}
+
 class KotlinChainElement
     : BaseStringChainElement<Int>() {
     override fun handle(o: Any): Int {
@@ -23,12 +29,6 @@ class KotlinChainElement
 
     override fun describe() =
             "I don't need to override this but I will"
-}
-
-class KotlinShorterChainElement :
-        BaseStringChainElement<Int>() {
-    override fun handle(o: Any) =
-            (o as String).last().toInt()
 }
 
 class KotlinLongChainElement :

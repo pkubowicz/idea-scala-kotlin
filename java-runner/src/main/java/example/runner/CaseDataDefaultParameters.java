@@ -31,6 +31,7 @@ class CaseDataDefaultParameters implements Runnable {
         kotlinFile1.getName();
 //        kotlinFile1.isExecutable(); // the only problem
         kotlinFile1.getExecutable();
+
 //        kotlinFile1.setName("foo"); // no setters
         new KotlinMutFile("n2", "e2", "l2", false)
                 .setName("foo");
