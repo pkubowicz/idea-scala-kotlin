@@ -10,11 +10,15 @@ abstract class BaseStringChainElement<T> :
             o is String && o.startsWith("Kotlin")
 }
 
+
 class KotlinShorterChainElement :
         BaseStringChainElement<Int>() {
     override fun handle(o: Any) =
             (o as String).last().toInt()
 }
+
+
+
 
 class KotlinChainElement
     : BaseStringChainElement<Int>() {
@@ -31,10 +35,13 @@ class KotlinChainElement
             "I don't need to override this but I will"
 }
 
+
 class KotlinLongChainElement :
 BaseStringChainElement<Long>() {
     override fun handle(o: Any) = 50L
 }
+
+
 
 data class KotlinDataWithInterface(private val name: String,
                                    val address: String,

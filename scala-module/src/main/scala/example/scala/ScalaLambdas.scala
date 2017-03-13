@@ -34,6 +34,9 @@ class ScalaLambdas(java: LambdaConsumer) {
     instance = () => { println("bar") }
   }
 
+
+
+
   def useConsumer(consumer: Int => Unit): Unit = {
     List(100, 200, 300).foreach((i) => consumer.apply(i))
   }

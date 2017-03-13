@@ -39,6 +39,7 @@ class CaseDataDefaultParameters implements Runnable {
         new LombokFile("n1", "e1", "l1", true).isExecutable();
     }
 
+
     private void defaultParameters() { // also demonstrates toString()
         System.err.println(ScalaDefaults.createFile("other-name", "other-ext", "/tmp", true));
         System.err.println(ScalaDefaults.createFile$default$2()); // Does not return anything!
@@ -50,6 +51,7 @@ class CaseDataDefaultParameters implements Runnable {
 
         ScalaDefaults.use();
         KotlinDefaults.INSTANCE.use();
+
 
         // does not work despite https://github.com/scala/scala/pull/4735
         // issues with Gradle plugin?

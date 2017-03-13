@@ -17,10 +17,14 @@ class KotlinOperators(private val operatorProvider: OperatorProvider) {
         return sum
     }
 
+
+
     fun twoComputationsTime(): java.time.Duration =
             operatorProvider.lastComputationTime() +
                     operatorProvider.lastComputationTime()
 }
+
+
 
 data class KotlinTimeout(val millis: Int) {
     companion object {

@@ -9,3 +9,8 @@ dependencies {
     compile project(':kotlin-module')
     compile project(':scala-module')
 }
+
+build.dependsOn shadowJar
+build.doLast {
+    logger.lifecycle "To run use ${project.getRootDir().toPath().relativize(shadowJar.archivePath.toPath())}"
+}

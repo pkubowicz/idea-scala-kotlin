@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Runner {
     public static void main(String[] args) {
-        Arrays.asList(new Runnable[]{
+        Arrays.stream(new Runnable[]{
 
                 new Static(),
                 new CaseDataDefaultParameters(),
@@ -15,14 +15,20 @@ public class Runner {
                 new Varargs(),
                 new Collections(),
                 new MoreNulls(),
-        }).forEach(r -> {
-            System.err.printf("=%s===========\n", r.getClass().getSimpleName());
-            System.err.flush();
-            r.run();
-            System.out.flush();
-            System.err.flush();
-            System.err.println("\n\n");
-            System.err.flush();
-        });
+        })
+                .filter(runnable -> classInArgs(runnable, args))
+                .forEach(runnable -> {
+                    System.err.printf("=%s===========\n", runnable.getClass().getSimpleName());
+                    System.err.flush();
+                    runnable.run();
+                    System.out.flush();
+                    System.err.flush();
+                    System.err.println("\n\n");
+                    System.err.flush();
+                });
+    }
+
+    private static boolean classInArgs(Runnable runnable, String[] args) {
+        return args.length == 0 || Arrays.stream(args).anyMatch(arg -> runnable.getClass().getSimpleName().contains(arg));
     }
 }

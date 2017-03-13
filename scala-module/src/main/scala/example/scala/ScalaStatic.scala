@@ -33,6 +33,8 @@ class ScalaStatic {
   }
 }
 
+
+
 object ScalaSingleton {
   val VERSION = 1
 

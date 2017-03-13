@@ -5,6 +5,7 @@ import java.util.Collections
 import example.java.MapCalculator
 
 object ScalaCollections {
+
   def oneTwoThree(): scala.collection.immutable.Seq[Int] = {
     val result = List(1, 2, 3)
     // does not compile - is not mutable
@@ -12,11 +13,16 @@ object ScalaCollections {
     result
   }
 
+
+
   def oneTwoThreeMutable(): scala.collection.mutable.Seq[Int] = {
     val result = scala.collection.mutable.ListBuffer(1, 2, 3)
     result(1) = 500
     result
   }
+
+
+
 
   def analyseMap(): Unit = {
     val calculate = MapCalculator.calculate

@@ -36,6 +36,8 @@ class KotlinStatic {
     }
 }
 
+
+
 object KotlinSingleton {
     const val VERSION = 1
 

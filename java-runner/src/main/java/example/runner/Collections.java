@@ -35,9 +35,12 @@ class Collections implements Runnable {
         }
         System.err.println("Kotlin iterable " + kotlinIterable);
 
+
         ScalaCollections.oneTwoThreeMutable();
         Iterable<Integer> mutableKotlinIterable = KotlinCollections.INSTANCE.oneTwoThreeMutable();
     }
+
+
 
     private void maps() {
         ScalaCollections.analyseMap();

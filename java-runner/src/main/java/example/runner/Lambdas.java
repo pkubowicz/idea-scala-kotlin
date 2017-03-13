@@ -15,8 +15,10 @@ class Lambdas implements Runnable {
         KotlinLambdas kotlinLambdas = new KotlinLambdas(new LambdaConsumer());
         kotlinLambdas.passLambdasToJava();
 
+
         passLambdasFromJava(scalaLambdas, kotlinLambdas);
     }
+
 
     private void passLambdasFromJava(ScalaLambdas scalaLambdas, KotlinLambdas kotlinLambdas) {
         Consumer<Integer> printer = System.err::println;

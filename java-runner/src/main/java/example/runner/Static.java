@@ -23,8 +23,12 @@ class Static implements Runnable {
         ScalaSingleton.VERSION();
         System.err.println(KotlinSingleton.VERSION);
 
+
+
         ScalaSingleton.describe();
         KotlinSingleton.INSTANCE.describe();
+
+
 
         try {
             ScalaStatic.throwSomething();

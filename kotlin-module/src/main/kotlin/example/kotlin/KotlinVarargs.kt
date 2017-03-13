@@ -17,6 +17,7 @@ class KotlinVarargs {
         format(*nums)
     }
 
+
     fun format(vararg a: Int): String =
             "sum " + a.sum()
 

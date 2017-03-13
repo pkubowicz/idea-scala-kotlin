@@ -25,6 +25,8 @@ class Operators implements Runnable {
         assertEqual(Duration.of(10, ChronoUnit.MILLIS), kotlinOperators.twoComputationsTime());
     }
 
+
+
     private void operateFromJava() {
         ScalaTimeout.run();
         KotlinTimeout.run();

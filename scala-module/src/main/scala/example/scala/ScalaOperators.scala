@@ -14,6 +14,8 @@ class ScalaOperators(operatorProvider: OperatorProvider) {
     sum
   }
 
+
+
   def twoComputationsTime(): java.time.Duration = {
     // does not compile
 //    operatorProvider.lastComputationTime() +
@@ -22,6 +24,8 @@ class ScalaOperators(operatorProvider: OperatorProvider) {
       .plus(operatorProvider.lastComputationTime())
   }
 }
+
+
 
 object ScalaTimeout {
   def run(): Unit = {

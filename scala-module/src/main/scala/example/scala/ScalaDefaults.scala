@@ -6,10 +6,16 @@ case class ScalaFile(name: String,
                      executable: Boolean)
 
 
+
+
+
 case class CannotBeMutableInScala(name: String,
                                   extension: String,
                                   location: String,
                                   executable: Boolean)
+
+
+
 
 object ScalaDefaults {
   def createFile(name: String = "removeme",

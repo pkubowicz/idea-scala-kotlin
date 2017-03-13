@@ -20,26 +20,6 @@ class ClassesInterfaces implements Runnable {
         toExtend();
     }
 
-    private void extendingJava() {
-        List<ChainElement<Integer>> responsibilityChain = Arrays.asList(
-                new ScalaChainElement(),
-                new KotlinChainElement()
-        );
-
-        // does not compile
-//        ChainElement<Integer> plain = new example.scala.ScalaPlainChainElement();
-//        ChainElement<Long> scalaLong = new example.scala.ScalaLongChainElement();
-        ChainElement<Long> kotlinLong = new example.kotlin.KotlinLongChainElement();
-
-        handle(responsibilityChain, "Java:A");
-        handle(responsibilityChain, "Kotlin:B");
-        handle(responsibilityChain, "Scala:C");
-
-        Named[] named = new Named[]{new KotlinDataWithInterface("name", "addr", 2),
-                new example.scala.ScalaCaseWithInterface("name", "addr", 3)
-        };
-    }
-
     private static void handle(List<ChainElement<Integer>> responsibilityChain, Object object) {
         for (ChainElement<Integer> chainElement : responsibilityChain) {
             if (chainElement.handles(object)) {
@@ -48,6 +28,30 @@ class ClassesInterfaces implements Runnable {
             }
         }
         System.err.println("Not handled: " + object);
+    }
+
+    private void extendingJava() {
+        // does not compile
+//        ChainElement<Integer> plain = new example.scala.ScalaPlainChainElement();
+
+        List<ChainElement<Integer>> responsibilityChain = Arrays.asList(
+                new ScalaChainElement(),
+                new KotlinChainElement()
+        );
+
+        // does not compile
+//        ChainElement<Long> scalaLong = new example.scala.ScalaLongChainElement();
+        ChainElement<Long> kotlinLong = new example.kotlin.KotlinLongChainElement();
+
+        handle(responsibilityChain, "Java:A");
+        handle(responsibilityChain, "Kotlin:B");
+        handle(responsibilityChain, "Scala:C");
+
+
+
+        Named[] named = new Named[]{new KotlinDataWithInterface("name", "addr", 2),
+                new example.scala.ScalaCaseWithInterface("name", "addr", 3)
+        };
     }
 
     private void toExtend() {

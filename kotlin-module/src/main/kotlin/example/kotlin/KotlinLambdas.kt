@@ -29,6 +29,9 @@ class KotlinLambdas(private val java: LambdaConsumer) {
 //        instance = LambdaConsumer.AbstractClass { println("foo") }
     }
 
+
+
+
     fun useConsumer(consumer: (Int) -> Unit) {
         listOf(100, 200, 300).forEach(consumer)
     }
