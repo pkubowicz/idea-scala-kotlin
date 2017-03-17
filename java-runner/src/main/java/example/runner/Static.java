@@ -14,11 +14,17 @@ class Static implements Runnable {
         System.err.println(KotlinStatic.Companion.getKotlinVersion());
         System.err.println(KotlinStatic.OLD_VERSIONS);
 
+
+
+
+
         ScalaStatic.describe();
         KotlinStatic.Companion.describeKotlin();
 //        KotlinStatic.describeKotlin(); // does not compile
         KotlinStatic.Companion.describe();
         KotlinStatic.describe();
+
+
 
         ScalaSingleton.VERSION();
         System.err.println(KotlinSingleton.VERSION);

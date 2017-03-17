@@ -9,6 +9,12 @@ case class ScalaFile(name: String,
 
 
 
+
+
+
+
+
+
 case class CannotBeMutableInScala(name: String,
                                   extension: String,
                                   location: String,
@@ -22,6 +28,7 @@ object ScalaDefaults {
                  extension: String = "",
                  location: String = "/tmp",
                  executable: Boolean = false): ScalaFile = {
+    // no 'new'
     ScalaFile(name, extension, location, executable)
   }
 

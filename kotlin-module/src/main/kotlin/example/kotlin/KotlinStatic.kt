@@ -4,6 +4,11 @@ import example.java.NullUtils
 import java.io.IOException
 
 class KotlinStatic {
+    fun instanceRun() {
+        describeKotlin()
+        KotlinSingleton.describe() + VERSION
+    }
+
     companion object {
         const val VERSION = 1
 
@@ -11,6 +16,9 @@ class KotlinStatic {
         val OLD_VERSIONS = listOf(0.8, 0.9)
 
         val kotlinVersion = 2
+
+
+
 
         fun describeKotlin() : String = "version " + kotlinVersion +
                 " using " + NullUtils.describe()
@@ -20,6 +28,8 @@ class KotlinStatic {
 
         fun unused() : String = "unused"
 
+
+
         @JvmStatic
         fun throwSomething() {
             doThrow()
@@ -28,11 +38,6 @@ class KotlinStatic {
         private fun doThrow() {
             throw IOException("fake checked exception")
         }
-    }
-
-    fun instanceRun() {
-        describeKotlin()
-        KotlinSingleton.describe() + VERSION
     }
 }
 
