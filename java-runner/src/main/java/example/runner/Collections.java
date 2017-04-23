@@ -2,6 +2,7 @@ package example.runner;
 
 import example.kotlin.KotlinCollections;
 import example.scala.ScalaCollections;
+import scala.collection.JavaConverters;
 import scala.collection.convert.ImplicitConversionsToJava$;
 import scala.collection.immutable.Seq;
 
@@ -19,7 +20,7 @@ class Collections implements Runnable {
         // OMG!!! no answer is correct
         Seq<Object> scalaSeq = ScalaCollections.oneTwoThree();
         scala.collection.immutable.List<Object> notJavaList = scalaSeq.toList();
-        List<Object> javaList = ImplicitConversionsToJava$.MODULE$.seq$u0020AsJavaList(scalaSeq);
+        List<Object> javaList = JavaConverters.seqAsJavaListConverter(scalaSeq).asJava();
         // haven't found how to get List<Integer>
         System.err.println("Scala sequence " + javaList);
         // other problems: Scala Future

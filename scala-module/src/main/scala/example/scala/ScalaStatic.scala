@@ -29,6 +29,7 @@ object ScalaStatic {
 
 
 
+//  @throws(classOf[IOException])
   def throwSomething(): Unit = {
     doThrow()
   }

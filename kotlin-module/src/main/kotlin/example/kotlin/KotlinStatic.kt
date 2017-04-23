@@ -31,6 +31,7 @@ class KotlinStatic {
 
 
         @JvmStatic
+//        @Throws(IOException::class)
         fun throwSomething() {
             doThrow()
         }

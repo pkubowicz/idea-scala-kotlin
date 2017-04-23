@@ -15,10 +15,10 @@ case class ScalaFile(name: String,
 
 
 
-case class CannotBeMutableInScala(name: String,
-                                  extension: String,
-                                  location: String,
-                                  executable: Boolean)
+case class ScalaMutFile(var name: String,
+                        var extension: String,
+                        var location: String,
+                        var executable: Boolean)
 
 
 

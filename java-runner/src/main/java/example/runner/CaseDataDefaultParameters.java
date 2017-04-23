@@ -7,6 +7,7 @@ import example.kotlin.KotlinMutFile;
 import example.lombok.LombokFile;
 import example.scala.ScalaDefaults;
 import example.scala.ScalaFile;
+import example.scala.ScalaMutFile;
 
 class CaseDataDefaultParameters implements Runnable {
     public void run() {
@@ -35,6 +36,8 @@ class CaseDataDefaultParameters implements Runnable {
 
 
 //        kotlinFile1.setName("foo"); // no setters
+        new ScalaMutFile("n2", "e2", "l2", false)
+                .name_$eq("foo");
         new KotlinMutFile("n2", "e2", "l2", false)
                 .setName("foo");
 
@@ -44,7 +47,7 @@ class CaseDataDefaultParameters implements Runnable {
 
     private void defaultParameters() { // also demonstrates toString()
         System.err.println(ScalaDefaults.createFile("other-name", "other-ext", "/tmp", true));
-        System.err.println(ScalaDefaults.createFile$default$2()); // Does not return anything!
+        System.err.println(ScalaDefaults.createFile$default$1()); // prints 'removeme'
 
         System.err.println(KotlinDefaults.createFile("other-name", "other-ext", "/tmp", true));
         System.err.println(KotlinDefaults.createFile("other-name", "other-ext"));
