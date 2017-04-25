@@ -65,3 +65,10 @@ More classes in Kotlin (it generate anonymous classes). Compare size with depend
 - from Java: rename `MapCalculator.Result.status`
 - from Kotlin: rename `KotlinButton.caption()`
 - from Scala: rename `ScalaButton.caption()`
+
+# Further reading
+
+- https://kotlinlang.org/docs/reference/comparison-to-scala.html
+- http://engineering.pivotal.io/post/spring-boot-application-with-kotlin/
+- https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0
+- https://www.slideshare.net/Odersky/scala-days-nyc-2016

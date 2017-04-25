@@ -1,0 +1,6 @@
+#!/bin/bash
+
+clear && cat <<AUTHOR - | cowsay -W 60 -f bud-frogs && echo -e "\n\n\n"
+Piotr Kubowicz // Twitter @pkubowicz
+https://github.com/pkubowicz/idea-scala-kotlin
+AUTHOR
