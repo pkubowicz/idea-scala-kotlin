@@ -24,7 +24,7 @@ jacoco {
 compileKotlin {
     kotlinOptions {
         jvmTarget = '1.8'
-        freeCompilerArgs += '-java-parameters'
+        freeCompilerArgs += ['-java-parameters', '-Xjsr305=strict']
     }
 }
 

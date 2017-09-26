@@ -1,6 +1,7 @@
 package example.kotlin
 
 import example.java.NullUtils
+import example.java.newapi.NewNullUtils
 
 class KotlinNulls {
     fun isAdmin(username: String?) =
@@ -18,7 +19,14 @@ class KotlinNulls {
                     NullUtils.unknownInspect(passwordEnv)
             val safeInspect: Int = // returns Int
                     NullUtils.safeInspect(passwordEnv)
-            println("Inspected " + unknownInspect + safeInspect + unknownInspect2)
+
+            // package-level nonnull annotation
+            val newSafeInspect: Int =
+                    NewNullUtils.safeInspect("passwordEnv")
+            val maybeInspect: Int? =
+                    NewNullUtils.maybeInspect(passwordEnv)
+
+            println("Inspected " + unknownInspect + safeInspect + unknownInspect2 + maybeInspect + newSafeInspect)
             return null
         }
         return passwordEnv
