@@ -20,6 +20,8 @@ class KotlinNulls {
             val safeInspect: Int = // returns Int
                     NullUtils.safeInspect(passwordEnv)
 
+
+
             // package-level nonnull annotation
             // https://medium.com/square-corner-blog/non-null-is-the-default-58ffc0bb9111
             val newSafeInspect: Int =

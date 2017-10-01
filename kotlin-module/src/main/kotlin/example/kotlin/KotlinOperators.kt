@@ -19,6 +19,7 @@ class KotlinOperators(private val operatorProvider: OperatorProvider) {
 
 
 
+
     fun twoComputationsTime(): java.time.Duration =
             operatorProvider.lastComputationTime() +
                     operatorProvider.lastComputationTime()

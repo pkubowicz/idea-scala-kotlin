@@ -9,6 +9,9 @@ class ScalaVarargs {
 //      "in Scala: string %s long %d",
 //      "foo", System.currentTimeMillis()))
 
+
+
+
     // spread operator
     val time = Array(12, 51, 46)
     format(time:_*)

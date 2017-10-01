@@ -12,6 +12,10 @@ class ScalaOperators(operatorProvider: OperatorProvider) {
       if i == j
     } sum += list.get(i).get(j)
     sum
+
+    // not as readable as when using Scala arrays
+//    val scalaArray = Array(Array(11,12), Array(13,14))
+//    scalaArray(1)(1)
   }
 
 

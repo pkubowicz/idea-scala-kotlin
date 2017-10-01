@@ -9,6 +9,9 @@ class KotlinVarargs {
                 "in Kotlin: string %s long %d",
                 "foo", System.currentTimeMillis()))
 
+
+
+
         // spread operator
         val nums = intArrayOf(1, 2, 4)
         format(*nums)

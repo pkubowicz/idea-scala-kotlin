@@ -54,20 +54,6 @@ class ClassesInterfaces implements Runnable {
         };
     }
 
-    private void toExtend() {
-        ScalaMenu scalaMenu = new ExtendingScalaMenu();
-        scalaMenu.addButton(new ImplementingScalaButton());
-        scalaMenu.test(0);
-
-        KotlinMenu kotlinMenu = new ExtendingKotlinMenu();
-        KotlinButton button = new ImplementingKotlinButton();
-        if (button.caption() == null) { // IDE understands this could not be null
-            return;
-        }
-        kotlinMenu.addButton(button);
-        kotlinMenu.test(0);
-    }
-
     private static class ImplementingScalaButton implements ScalaButton {
         @Override
         public boolean toggle() {
@@ -120,5 +106,19 @@ class ClassesInterfaces implements Runnable {
         }
 
 //        @Override public void addButton(KotlinButton button) {} // won't compile - is final
+    }
+
+    private void toExtend() {
+        ScalaMenu scalaMenu = new ExtendingScalaMenu();
+        scalaMenu.addButton(new ImplementingScalaButton());
+        scalaMenu.test(0);
+
+        KotlinMenu kotlinMenu = new ExtendingKotlinMenu();
+        KotlinButton button = new ImplementingKotlinButton();
+        if (button.caption() == null) { // IDE understands this could not be null
+            return;
+        }
+        kotlinMenu.addButton(button);
+        kotlinMenu.test(0);
     }
 }
