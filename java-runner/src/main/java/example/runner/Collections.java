@@ -16,8 +16,9 @@ class Collections implements Runnable {
     }
 
     private void immutable() {
+        // not easy to find a correct answer
         // http://stackoverflow.com/questions/17737631/convert-from-scala-collection-seqstring-to-java-util-liststring-in-java-code
-        // OMG!!! no answer is correct
+        // top 2 answers are incorrect, first correct answer appeared on 2017-07-18
         Seq<Object> scalaSeq = ScalaCollections.oneTwoThree();
         scala.collection.immutable.List<Object> notJavaList = scalaSeq.toList();
         List<Object> javaList = JavaConverters.seqAsJavaListConverter(scalaSeq).asJava();

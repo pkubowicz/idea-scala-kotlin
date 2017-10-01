@@ -8,20 +8,23 @@ class ScalaVarargs {
 //    System.err.println(java.lang.String.format(
 //      "in Scala: string %s long %d",
 //      "foo", System.currentTimeMillis()))
+
+    // spread operator
     val time = Array(12, 51, 46)
+    format(time:_*)
+
     // does not compile, works in Kotlin
 //    System.err.println(java.lang.String.format(
 //      "in Scala: %d:%d:%d", time:_*))
     // compiles, fails in runtime
 //    System.err.println(java.lang.String.format(
 //      "in Scala: %d:%d:%d", time))
-
-    // _* in Scala
-    format(time:_*)
   }
 
   def format(a: Int*): String =
     "sum " + a.sum
+
+
 
   @annotation.varargs
   def formatAnnotated(a: Int*): String =

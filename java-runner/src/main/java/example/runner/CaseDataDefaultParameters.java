@@ -59,7 +59,8 @@ class CaseDataDefaultParameters implements Runnable {
 
 
         // does not work despite https://github.com/scala/scala/pull/4735
-        // issues with Gradle plugin?
+        // currently Gradle is not able to use modern Scala compiler
+        // https://github.com/gradle/gradle/issues/2158
         System.err.println("Scala parameter names: " +
                 ParametersReflection.parameterNames(ScalaDefaults.class, "createFile"));
         System.err.println("Kotlin parameter names: " +

@@ -8,18 +8,20 @@ class KotlinVarargs {
         System.err.println(java.lang.String.format(
                 "in Kotlin: string %s long %d",
                 "foo", System.currentTimeMillis()))
+
+        // spread operator
+        val nums = intArrayOf(1, 2, 4)
+        format(*nums)
+
         val time = arrayOf(12, 51, 46)
         System.err.println(java.lang.String.format(
                 "in Kotlin: %d:%d:%d", *time))
-
-        // * works in Kotlin as well
-        val nums = intArrayOf(1, 2, 4)
-        format(*nums)
     }
-
 
     fun format(vararg a: Int): String =
             "sum " + a.sum()
+
+
 
     // makes no sense, just to have the same
     // number of methods as Scala

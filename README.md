@@ -24,7 +24,7 @@ Run with `./gradlew build`. Start reading from `Runner.java`.
 - using collections from the other language: need to Google for [complicated conversions](http://stackoverflow.com/questions/17737631/convert-from-scala-collection-seqstring-to-java-util-liststring-in-java-code) in both directions
 - when overriding methods, Scala `Int` is not Java `Integer`; same for `Long`
 - some very confusing syntactic magic: `foo()` can be understood as `foo(null)`
-- cannot use function instances as Java functional interfaces (but inline functions are fine) - see `ScalaLambdas.passLambdasToJava`
+- cannot use function instances as Java functional interfaces (but inline functions are fine) - see `ScalaLambdas.passLambdasToJava`; [conversions](https://github.com/scala/scala-java8-compat) will help
 
 ## Good in Kotlin
 
