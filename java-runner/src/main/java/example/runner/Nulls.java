@@ -7,8 +7,6 @@ class Nulls implements Runnable {
     public void run() {
         ScalaNulls scalaNulls = new ScalaNulls();
         KotlinNulls kotlinNulls = new KotlinNulls();
-        System.err.println("Scala: is null admin? " + scalaNulls.isAdmin(null));
-        System.err.println("Kotlin: is null admin? " + kotlinNulls.isAdmin(null));
 
         try {
             System.err.println(scalaNulls.passwordFromEnv());
@@ -23,5 +21,8 @@ class Nulls implements Runnable {
             System.err.println("Expected exception after calling Kotlin");
             e.printStackTrace();
         }
+
+        System.err.println("Scala: is null admin? " + scalaNulls.isAdmin(null));
+        System.err.println("Kotlin: is null admin? " + kotlinNulls.isAdmin(null));
     }
 }

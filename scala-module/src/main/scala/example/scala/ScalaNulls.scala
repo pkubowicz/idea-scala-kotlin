@@ -3,9 +3,6 @@ package example.scala
 import example.java.NullUtils
 
 class ScalaNulls {
-  def isAdmin(username: String): Boolean =
-    username == "admin"
-
   def passwordFromEnv(): String = {
     val passwordEnv = System.getenv("PASSWORD")
     if (passwordEnv == null) {
@@ -23,4 +20,7 @@ class ScalaNulls {
     }
     passwordEnv
   }
+
+  def isAdmin(username: String): Boolean =
+    username == "admin"
 }

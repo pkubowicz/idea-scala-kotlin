@@ -10,10 +10,10 @@ public class Runner {
                 new CaseDataDefaultParameters(),
                 new Nulls(),
                 new ClassesInterfaces(),
-                new Operators(),
-                new Lambdas(),
                 new Varargs(),
                 new Collections(),
+                new Lambdas(),
+                new Operators(),
                 new MoreNulls(),
         })
                 .filter(runnable -> classInArgs(runnable, args))

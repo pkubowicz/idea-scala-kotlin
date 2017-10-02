@@ -4,9 +4,6 @@ import example.java.NullUtils
 import example.java.newapi.NewNullUtils
 
 class KotlinNulls {
-    fun isAdmin(username: String?) =
-            username == "admin" // no more Yoda statements!
-
     fun passwordFromEnv(): String? {
         val passwordEnv : String? = System.getenv("PASSWORD")
 //        println(passwordEnv.length)
@@ -34,4 +31,7 @@ class KotlinNulls {
         }
         return passwordEnv
     }
+
+    fun isAdmin(username: String?) =
+            username == "admin" // no more Yoda statements!
 }
