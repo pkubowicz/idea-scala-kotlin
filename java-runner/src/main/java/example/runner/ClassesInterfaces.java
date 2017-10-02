@@ -85,6 +85,7 @@ class ClassesInterfaces implements Runnable {
             // https://youtrack.jetbrains.com/issue/KT-4779
             // this is not needed in Scala version of this class
             System.err.println("I shouldn't need to override this!");
+//            KotlinButton.super.reset(); // default implementation not accessible
         }
     }
 

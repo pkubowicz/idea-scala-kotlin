@@ -37,6 +37,9 @@ object ScalaDefaults {
     createFile("named", "txt")
     createFile(location = "/var/tmp")
 
+
+
+
     println("Scala calls Java with named parameters: " +
       example.java.JavaManyParameters.createFile(
         location = "/tmp", name = "removeme",

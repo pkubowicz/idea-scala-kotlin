@@ -8,6 +8,7 @@ trait ScalaButton {
   def reset(): Unit = {} // default impl
 }
 
+
 class ScalaMenu {
   protected val buttons =
     new ListBuffer[ScalaButton]()
