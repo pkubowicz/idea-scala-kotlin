@@ -1,5 +1,5 @@
 dependencies {
     compile project(":java-module")
-    compileOnly group: 'org.projectlombok', name: 'lombok', version:'1.16.18'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version:'1.16.20'
     compile group: 'com.google.guava', name: 'guava', version: '20.0'
 }
